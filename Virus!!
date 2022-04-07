@@ -15,7 +15,7 @@ local Button6 = Instance.new("TextButton")
 local Button7 = Instance.new("TextButton")
 local Button8 = Instance.new("TextButton")
 local Button9 = Instance.new("TextButton")
-local Button10 = Instance.new("TextButton")
+local Button10 = Instance.new("TextBox")
 local Button11 = Instance.new("TextButton")
 local Button12 = Instance.new("TextButton")
 local Button13 = Instance.new("TextButton")
@@ -52,7 +52,7 @@ title.Position = UDim2.new(0, 40, 0, 0)
 title.Font = Enum.Font.GothamBold
 title.BorderSizePixel = 1
 title.BorderColor3 = Color3.new(0, 255, 0)
-title.Text = "Title"
+title.Text = "Anti-Abuse"
 title.TextColor3 = Color3.new(0, 255, 0)
 title.TextSize = 14
 title.TextWrapped = true
@@ -410,27 +410,21 @@ Button8.TextWrapped = true
 Button8.MouseButton1Down:connect(function()
    if Button8.Text == "tpwalk" then
 Button8.Text = "Untpwalk"
-recentsp = plr.Character.Humanoid.WalkSpeed
 local hb = game:GetService("RunService").Heartbeat
-plr.Character.Humanoid.WalkSpeed = 17
-args = {}
 	tpwalking = true
 	local chr = plr.Character
 	local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
 	while tpwalking and hb:Wait() and chr and hum and hum.Parent do
 		if hum.MoveDirection.Magnitude > 0 then
-			if args[1] and isNumber(args[1]) then
-				chr:TranslateBy(hum.MoveDirection * tonumber(args[1]))
+				chr:TranslateBy(hum.MoveDirection * tonumber(Button10.Text or 1))
 			else
 				chr:TranslateBy(hum.MoveDirection)
-			end
 		end
 end
 
 elseif Button8.Text == "Untpwalk" then
 Button8.Text = "tpwalk"
 tpwalking = false
-plr.Character.Humanoid.WalkSpeed = recentsp
 end
 end)
 
@@ -478,16 +472,17 @@ Button10.BackgroundColor3 = Color3.new(0, 0, 0)
 Button10.Position = UDim2.new(0, 169, 0, 70)
 Button10.Size = UDim2.new(0, 78, 0, 30)
 Button10.Font = Enum.Font.GothamBold
-Button10.Text = "Button10"
+Button10.Text = "1"
+Button10.PlaceholderText = "tpwalk value"
+Button10.ClearTextOnFocus = false
+Button10.MultiLine = true
+Button10.PlaceholderColor3 = Color3.new(0, 255, 0)
 Button10.BorderColor3 = Color3.new(0, 255, 0)
 Button10.BorderSizePixel = 1
 Button10.TextColor3 = Color3.new(0, 255, 0)
 Button10.TextScaled = true
 Button10.TextSize = 14
 Button10.TextWrapped = true
-Button10.MouseButton1Down:connect(function()
-   
-end)
 
 Button11.Name = "Button11"
 Button11.Parent = main
