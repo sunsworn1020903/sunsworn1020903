@@ -1,10 +1,634 @@
-- 👋 Hi, I’m @sunsworn1020903
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+Players = game:GetService("Players")
+COREGUI = game:GetService("CoreGui")
+CHMSenabled = false
+local plr = Game.Players.LocalPlayer
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local destroy = Instance.new("TextButton")
+local Button1 = Instance.new("TextButton")
+local Button2 = Instance.new("TextButton")
+local Button3 = Instance.new("TextButton")
+local Button4 = Instance.new("TextButton")
+local Button5 = Instance.new("TextButton")
+local Button6 = Instance.new("TextButton")
+local Button7 = Instance.new("TextButton")
+local Button8 = Instance.new("TextButton")
+local Button9 = Instance.new("TextButton")
+local Button10 = Instance.new("TextButton")
+local Button11 = Instance.new("TextButton")
+local Button12 = Instance.new("TextButton")
+local Button13 = Instance.new("TextButton")
+local Button14 = Instance.new("TextButton")
+local Button15 = Instance.new("TextButton")
+local Button16 = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
+--Properties:
+ScreenGui.Parent = game.CoreGui
 
-<!---
-sunsworn1020903/sunsworn1020903 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.new(0, 0, 0)
+main.Position = UDim2.new(0.0203577988, 0, 0.641277611, 0)
+main.Size = UDim2.new(0, 332, 0, 211)
+main.BorderSizePixel = 1
+main.BorderColor3 = Color3.new(0, 255, 0)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+function getRoot(char)
+	local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
+	return rootPart
+end
+
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.new(0.099, 0.099, 0.099)
+title.Size = UDim2.new(0, 252, 0, 31)
+title.Position = UDim2.new(0, 40, 0, 0)
+title.Font = Enum.Font.GothamBold
+title.BorderSizePixel = 1
+title.BorderColor3 = Color3.new(0, 255, 0)
+title.Text = "Title"
+title.TextColor3 = Color3.new(0, 255, 0)
+title.TextSize = 14
+title.TextWrapped = true
+title.TextScaled = true
+
+function CHMS(plrs)
+	task.spawn(function()
+		for i,v in pairs(COREGUI:GetChildren()) do
+			if v.Name == plrs.Name..'_CHMS' then
+				v:Destroy()
+			end
+		end
+		wait()
+		if plrs.Character and plrs.Name ~= Players.LocalPlayer.Name and not COREGUI:FindFirstChild(plrs.Name..'_CHMS') then
+			local ESPholder = Instance.new("Folder")
+			ESPholder.Name = plrs.Name..'_CHMS'
+			ESPholder.Parent = COREGUI
+			repeat wait(1) until plrs.Character and getRoot(plrs.Character) and plrs.Character:FindFirstChildOfClass("Humanoid")
+			for b,n in pairs (plrs.Character:GetChildren()) do
+				if (n:IsA("BasePart")) then
+					local a = Instance.new("BoxHandleAdornment")
+					a.Name = plrs.Name
+					a.Parent = ESPholder
+					a.Adornee = n
+					a.AlwaysOnTop = true
+					a.ZIndex = 10
+					a.Size = n.Size
+					a.Transparency = 0.3
+					a.Color = plrs.TeamColor
+				end
+			end
+			local addedFunc
+			local teamChange
+			local CHMSremoved
+			addedFunc = plrs.CharacterAdded:Connect(function()
+				if CHMSenabled then
+					ESPholder:Destroy()
+					teamChange:Disconnect()
+					repeat wait(1) until getRoot(plrs.Character) and plrs.Character:FindFirstChildOfClass("Humanoid")
+					CHMS(plrs)
+					addedFunc:Disconnect()
+				else
+					teamChange:Disconnect()
+					addedFunc:Disconnect()
+				end
+			end)
+			teamChange = plrs:GetPropertyChangedSignal("TeamColor"):Connect(function()
+				if CHMSenabled then
+					ESPholder:Destroy()
+					addedFunc:Disconnect()
+					repeat wait(1) until getRoot(plrs.Character) and plrs.Character:FindFirstChildOfClass("Humanoid")
+					CHMS(plrs)
+					teamChange:Disconnect()
+				else
+					teamChange:Disconnect()
+				end
+			end)
+			CHMSremoved = ESPholder.AncestryChanged:Connect(function()
+				teamChange:Disconnect()
+				addedFunc:Disconnect()
+				CHMSremoved:Disconnect()
+			end)
+		end
+	end)
+end
+
+Players.PlayerRemoving:Connect(function(player)
+	if ESPenabled or CHMSenabled or COREGUI:FindFirstChild(player.Name..'_LC') then
+		for i,v in pairs(COREGUI:GetChildren()) do
+			if v.Name == player.Name..'_ESP' or v.Name == player.Name..'_LC' or v.Name == player.Name..'_CHMS' then
+				v:Destroy()
+			end
+		end
+	end
+end)
+
+destroy.Name = "Destroy Gui"
+destroy.Parent = main
+destroy.BackgroundColor3 = Color3.new(0, 0, 0)
+destroy.Position = UDim2.new(0, 0, 0, 0)
+destroy.Size = UDim2.new(0, 40, 0, 31)
+destroy.Font = Enum.Font.GothamBold
+destroy.Text = "X"
+destroy.BorderColor3 = Color3.new(0, 255, 0)
+destroy.BorderSizePixel = 1
+destroy.TextColor3 = Color3.new(0, 255, 0)
+destroy.TextScaled = true
+destroy.TextSize = 14
+destroy.TextWrapped = true
+destroy.MouseButton1Down:connect(function()
+ ScreenGui:Destroy()
+end)
+
+Button1.Name = "Button1"
+Button1.Parent = main
+Button1.BackgroundColor3 = Color3.new(0, 0, 0)
+Button1.Position = UDim2.new(0, 5, 0, 35)
+Button1.Size = UDim2.new(0, 75, 0, 30)
+Button1.Font = Enum.Font.GothamBold
+Button1.Text = "Fling"
+Button1.BorderSizePixel = 1
+Button1.BorderColor3 = Color3.new(0, 255, 0)
+Button1.TextColor3 = Color3.new(0, 255, 0)
+Button1.TextScaled = true
+Button1.TextSize = 14
+Button1.TextWrapped = true
+Button1.MouseButton1Down:connect(function()
+   if Button1.Text == "Fling" then
+Button1.Text = "Unfling"
+flinging = false
+flingtbl = {}
+	local rootpart = getRoot(plr.Character)
+	if not rootpart then return end
+	flingtbl.OldVelocity = rootpart.Velocity
+	local bv = Instance.new("BodyAngularVelocity")
+	flingtbl.bv = bv
+	bv.MaxTorque = Vector3.new(1, 1, 1) * math.huge
+	bv.P = math.huge
+	bv.AngularVelocity = Vector3.new(0, 9e5, 0)
+	bv.Parent = rootpart
+	local Char = plr.Character:GetChildren()
+	for i, v in next, Char do
+		if v:IsA("BasePart") then
+			v.CanCollide = false
+			v.Massless = true
+			v.Velocity = Vector3.new(0, 0, 0)
+		end
+	end
+	flingtbl.Noclipping2 = game:GetService("RunService").Stepped:Connect(function()
+		for i, v in next, Char do
+			if v:IsA("BasePart") then
+				v.CanCollide = false
+			end
+		end
+	end)
+	flinging = true
+elseif Button1.Text == "Unfling" then
+Button1.Text = "Fling"
+local rootpart = getRoot(plr.Character)
+	if not rootpart then return end
+	flingtbl.OldPos = rootpart.CFrame
+	local Char = plr.Character:GetChildren()
+	if flingtbl.bv ~= nil then
+		flingtbl.bv:Destroy()
+		flingtbl.bv = nil
+	end
+	if flingtbl.Noclipping2 ~= nil then
+		flingtbl.Noclipping2:Disconnect()
+		flingtbl.Noclipping2 = nil
+	end
+	for i, v in next, Char do
+		if v:IsA("BasePart") then
+			v.CanCollide = true
+			v.Massless = false
+		end
+	end
+	flingtbl.isRunning = game:GetService("RunService").Stepped:Connect(function()
+		if flingtbl.OldPos ~= nil then
+			rootpart.CFrame = flingtbl.OldPos
+		end
+		if flingtbl.OldVelocity ~= nil then
+			rootpart.Velocity = flingtbl.OldVelocity
+		end
+	end)
+	wait(2)
+	rootpart.Anchored = true
+	if flingtbl.isRunning ~= nil then
+		flingtbl.isRunning:Disconnect()
+		flingtbl.isRunning = nil
+	end
+	rootpart.Anchored = false
+	if flingtbl.OldVelocity ~= nil then
+		rootpart.Velocity = flingtbl.OldVelocity
+	end
+	if flingtbl.OldPos ~= nil then
+		rootpart.CFrame = flingtbl.OldPos
+	end
+	wait()
+	flingtbl.OldVelocity = nil
+	flingtbl.OldPos = nil
+	flinging = false
+end
+end)
+
+Button2.Name = "Button2"
+Button2.Parent = main
+Button2.BackgroundColor3 = Color3.new(0, 0, 0)
+Button2.Position = UDim2.new(0, 5, 0, 70)
+Button2.Size = UDim2.new(0, 75, 0, 30)
+Button2.Font = Enum.Font.GothamBold
+Button2.Text = "Save pos"
+Button2.BorderSizePixel = 1
+Button2.BorderColor3 = Color3.new(0, 255, 0)
+Button2.TextColor3 = Color3.new(0, 255, 0)
+Button2.TextScaled = true
+Button2.TextSize = 14
+Button2.TextWrapped = true
+Button2.MouseButton1Down:connect(function()
+    if Button2.Text == "Save pos" then
+Button2.Text = "Unsave"
+game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "saved!";Text = "";
+			Duration = 5;
+		})
+saved = true
+savepos = plr.Character.HumanoidRootPart.CFrame
+while saved and wait() do
+plr.CharacterAdded:wait():WaitForChild"HumanoidRootPart"
+plr.Character.HumanoidRootPart.CFrame = savepos
+end
+elseif Button2.Text == "Unsave" then
+Button2.Text = "Save pos"
+saved = false
+plr.Character:Destroy()
+game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "wait!";Text = "";
+			Duration = 5;
+		})
+end
+end)
+
+Button3.Name = "Button3"
+Button3.Parent = main
+Button3.BackgroundColor3 = Color3.new(0, 0, 0)
+Button3.Position = UDim2.new(1, -80, 0, 35)
+Button3.Size = UDim2.new(0, 75, 0, 30)
+Button3.Font = Enum.Font.GothamBold
+Button3.Text = "Handle"
+Button3.BorderColor3 = Color3.new(0, 255, 0)
+Button3.BorderSizePixel = 1
+Button3.TextColor3 = Color3.new(0, 255, 0)
+Button3.TextScaled = true
+Button3.TextSize = 14
+Button3.TextWrapped = true
+Button3.MouseButton1Down:connect(function()
+local hum = plr.Character.Humanoid
+local newhum = Instance.new("Humanoid", plr.Character)
+hum:Destroy()
+    Workspace.CurrentCamera.CameraSubject = plr.Character
+for i,b in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(b or Game.Players.localPlayer.Character:FindFirstChildOfClass"Tool")
+        wait()
+        c = game.Players.localPlayer.Character.HumanoidRootPart.CFrame
+wait()
+game.Players.localPlayer.CharacterAdded:wait():WaitForChild("Humanoid")
+wait()
+game.Players.localPlayer.Character.HumanoidRootPart.CFrame = c
+wait()
+end
+end)
+
+Button4.Name = "Button4"
+Button4.Parent = main
+Button4.BackgroundColor3 = Color3.new(0, 0, 0)
+Button4.Position = UDim2.new(1, -80, 0, 70)
+Button4.Size = UDim2.new(0, 75, 0, 30)
+Button4.Font = Enum.Font.GothamBold
+Button4.Text = "Reset"
+Button4.BorderColor3 = Color3.new(0, 255, 0)
+Button4.BorderSizePixel = 1
+Button4.TextColor3 = Color3.new(0, 255, 0)
+Button4.TextScaled = true
+Button4.TextSize = 14
+Button4.TextWrapped = true
+Button4.MouseButton1Down:connect(function()
+plr.Character:Destroy()
+end)
+
+Button5.Name = "Button5"
+Button5.Parent = main
+Button5.BackgroundColor3 = Color3.new(0, 0, 0)
+Button5.Position = UDim2.new(1, -80, 0, 105)
+Button5.Size = UDim2.new(0, 75, 0, 30)
+Button5.Font = Enum.Font.GothamBold
+Button5.Text = "Sit"
+Button5.BorderColor3 = Color3.new(0, 255, 0)
+Button5.BorderSizePixel = 1
+Button5.TextColor3 = Color3.new(0, 255, 0)
+Button5.TextScaled = true
+Button5.TextSize = 14
+Button5.TextWrapped = true
+Button5.MouseButton1Down:connect(function()
+   plr.Character.Humanoid.Sit = true
+    end)
+
+Button6.Name = "Button6"
+Button6.Parent = main
+Button6.BackgroundColor3 = Color3.new(0, 0, 0)
+Button6.Position = UDim2.new(0, 5, 0, 105)
+Button6.Size = UDim2.new(0, 75, 0, 30)
+Button6.Font = Enum.Font.GothamBold
+Button6.Text = "Reset2"
+Button6.BorderColor3 = Color3.new(0, 255, 0)
+Button6.BorderSizePixel = 1
+Button6.TextColor3 = Color3.new(0, 255, 0)
+Button6.TextScaled = true
+Button6.TextSize = 14
+Button6.TextWrapped = true
+Button6.MouseButton1Down:connect(function()
+   plr.Character.Humanoid:Destroy()
+workspace.Camera.CameraSubject = plr.Character
+wait(2)
+plr.Character:Destroy()
+    end)
+
+Button7.Name = "Button7"
+Button7.Parent = main
+Button7.BackgroundColor3 = Color3.new(0, 0, 0)
+Button7.Position = UDim2.new(0, 169, 0, 35)
+Button7.Size = UDim2.new(0, 78, 0, 30)
+Button7.Font = Enum.Font.GothamBold
+Button7.Text = "Chams"
+Button7.BorderColor3 = Color3.new(0, 255, 0)
+Button7.BorderSizePixel = 1
+Button7.TextColor3 = Color3.new(0, 255, 0)
+Button7.TextScaled = true
+Button7.TextSize = 14
+Button7.TextWrapped = true
+Button7.MouseButton1Down:connect(function()
+ if Button7.Text == "Chams" then
+Button7.Text = "Uncham"
+CHMSenabled = true
+		for i,v in pairs(Players:GetChildren()) do
+			if v.ClassName == "Player" and v.Name ~= plr.Name then
+				CHMS(v)
+			end
+		end
+elseif Button7.Text == "Uncham" then
+Button7.Text = "Chams"
+ CHMSenabled = false
+	for i,v in pairs(Players:GetChildren()) do
+		local chmsplr = v
+		for i,c in pairs(COREGUI:GetChildren()) do
+			if c.Name == chmsplr.Name..'_CHMS' then
+				c:Destroy()
+			end
+		end
+	end
+ end
+end)
+
+Button8.Name = "Button8"
+Button8.Parent = main
+Button8.BackgroundColor3 = Color3.new(0, 0, 0)
+Button8.Position = UDim2.new(0, 85, 0, 35)
+Button8.Size = UDim2.new(0, 78, 0, 30)
+Button8.Font = Enum.Font.GothamBold
+Button8.Text = "tpwalk"
+Button8.BorderColor3 = Color3.new(0, 255, 0)
+Button8.BorderSizePixel = 1
+Button8.TextColor3 = Color3.new(0, 255, 0)
+Button8.TextScaled = true
+Button8.TextSize = 14
+Button8.TextWrapped = true
+Button8.MouseButton1Down:connect(function()
+   if Button8.Text == "tpwalk" then
+Button8.Text = "Untpwalk"
+recentsp = plr.Character.Humanoid.WalkSpeed
+local hb = game:GetService("RunService").Heartbeat
+plr.Character.Humanoid.WalkSpeed = 17
+args = {}
+	tpwalking = true
+	local chr = plr.Character
+	local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+	while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+		if hum.MoveDirection.Magnitude > 0 then
+			if args[1] and isNumber(args[1]) then
+				chr:TranslateBy(hum.MoveDirection * tonumber(args[1]))
+			else
+				chr:TranslateBy(hum.MoveDirection)
+			end
+		end
+end
+
+elseif Button8.Text == "Untpwalk" then
+Button8.Text = "tpwalk"
+tpwalking = false
+plr.Character.Humanoid.WalkSpeed = recentsp
+end
+end)
+
+Button9.Name = "Button9"
+Button9.Parent = main
+Button9.BackgroundColor3 = Color3.new(0, 0, 0)
+Button9.Position = UDim2.new(0, 85, 0, 70)
+Button9.Size = UDim2.new(0, 78, 0, 30)
+Button9.Font = Enum.Font.GothamBold
+Button9.Text = "Noclip"
+Button9.BorderColor3 = Color3.new(0, 255, 0)
+Button9.BorderSizePixel = 1
+Button9.TextColor3 = Color3.new(0, 255, 0)
+Button9.TextScaled = true
+Button9.TextSize = 14
+Button9.TextWrapped = true
+Button9.MouseButton1Down:connect(function()
+   if Button9.Text == "Noclip" then
+Button9.Text = "Unclip"
+local Noclipping = nil
+	Clip = false
+	wait(0.1)
+	local function NoclipLoop()
+		if Clip == false and plr.Character ~= nil then
+			for _, child in pairs(plr.Character:GetDescendants()) do
+				if child:IsA("BasePart") and child.CanCollide == true and child.Name ~= floatName then
+					child.CanCollide = false
+				end
+			end
+		end
+	end
+	Noclipping = game:GetService('RunService').Stepped:Connect(NoclipLoop)
+elseif Button9.Text == "Unclip" then
+Button9.Text = "Noclip"
+	if Noclipping then
+		Noclipping:Disconnect()
+	end
+	Clip = true
+end
+end)
+
+Button10.Name = "Button10"
+Button10.Parent = main
+Button10.BackgroundColor3 = Color3.new(0, 0, 0)
+Button10.Position = UDim2.new(0, 169, 0, 70)
+Button10.Size = UDim2.new(0, 78, 0, 30)
+Button10.Font = Enum.Font.GothamBold
+Button10.Text = "Button10"
+Button10.BorderColor3 = Color3.new(0, 255, 0)
+Button10.BorderSizePixel = 1
+Button10.TextColor3 = Color3.new(0, 255, 0)
+Button10.TextScaled = true
+Button10.TextSize = 14
+Button10.TextWrapped = true
+Button10.MouseButton1Down:connect(function()
+   
+end)
+
+Button11.Name = "Button11"
+Button11.Parent = main
+Button11.BackgroundColor3 = Color3.new(0, 0, 0)
+Button11.Position = UDim2.new(0, 169, 0, 105)
+Button11.Size = UDim2.new(0, 78, 0, 30)
+Button11.Font = Enum.Font.GothamBold
+Button11.Text = "Button11"
+Button11.BorderColor3 = Color3.new(0, 255, 0)
+Button11.BorderSizePixel = 1
+Button11.TextColor3 = Color3.new(0, 255, 0)
+Button11.TextScaled = true
+Button11.TextSize = 14
+Button11.TextWrapped = true
+Button11.MouseButton1Down:connect(function()
+   
+end)
+
+Button12.Name = "Button12"
+Button12.Parent = main
+Button12.BackgroundColor3 = Color3.new(0, 0, 0)
+Button12.Position = UDim2.new(0, 85, 0, 105)
+Button12.Size = UDim2.new(0, 78, 0, 30)
+Button12.Font = Enum.Font.GothamBold
+Button12.Text = "Button12"
+Button12.BorderColor3 = Color3.new(0, 255, 0)
+Button12.BorderSizePixel = 1
+Button12.TextColor3 = Color3.new(0, 255, 0)
+Button12.TextScaled = true
+Button12.TextSize = 14
+Button12.TextWrapped = true
+Button12.MouseButton1Down:connect(function()
+   
+end)
+
+Button13.Name = "Button13"
+Button13.Parent = main
+Button13.BackgroundColor3 = Color3.new(0, 0, 0)
+Button13.Position = UDim2.new(0, 5, 0, 140)
+Button13.Size = UDim2.new(0, 75, 0, 30)
+Button13.Font = Enum.Font.GothamBold
+Button13.Text = "Button13"
+Button13.BorderColor3 = Color3.new(0, 255, 0)
+Button13.BorderSizePixel = 1
+Button13.TextColor3 = Color3.new(0, 255, 0)
+Button13.TextScaled = true
+Button13.TextSize = 14
+Button13.TextWrapped = true
+Button13.MouseButton1Down:connect(function()
+   
+end)
+
+Button14.Name = "Button14"
+Button14.Parent = main
+Button14.BackgroundColor3 = Color3.new(0, 0, 0)
+Button14.Position = UDim2.new(0, 85, 0, 140)
+Button14.Size = UDim2.new(0, 78, 0, 30)
+Button14.Font = Enum.Font.GothamBold
+Button14.Text = "Button14"
+Button14.BorderColor3 = Color3.new(0, 255, 0)
+Button14.BorderSizePixel = 1
+Button14.TextColor3 = Color3.new(0, 255, 0)
+Button14.TextScaled = true
+Button14.TextSize = 14
+Button14.TextWrapped = true
+Button14.MouseButton1Down:connect(function()
+   
+end)
+
+Button15.Name = "Button15"
+Button15.Parent = main
+Button15.BackgroundColor3 = Color3.new(0, 0, 0)
+Button15.Position = UDim2.new(0, 169, 0, 140)
+Button15.Size = UDim2.new(0, 78, 0, 30)
+Button15.Font = Enum.Font.GothamBold
+Button15.Text = "Button15"
+Button15.BorderColor3 = Color3.new(0, 255, 0)
+Button15.BorderSizePixel = 1
+Button15.TextColor3 = Color3.new(0, 255, 0)
+Button15.TextScaled = true
+Button15.TextSize = 14
+Button15.TextWrapped = true
+Button15.MouseButton1Down:connect(function()
+   
+end)
+
+Button16.Name = "Button16"
+Button16.Parent = main
+Button16.BackgroundColor3 = Color3.new(0, 0, 0)
+Button16.Position = UDim2.new(1, -80, 0, 140)
+Button16.Size = UDim2.new(0, 75, 0, 30)
+Button16.Font = Enum.Font.GothamBold
+Button16.Text = "Button16"
+Button16.BorderColor3 = Color3.new(0, 255, 0)
+Button16.BorderSizePixel = 1
+Button16.TextColor3 = Color3.new(0, 255, 0)
+Button16.TextScaled = true
+Button16.TextSize = 14
+Button16.TextWrapped = true
+Button16.MouseButton1Down:connect(function()
+   
+end)
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.new(0.099, 0.099, 0.099)
+close.Position = UDim2.new(0.879518092, 0, 0, 0)
+close.Size = UDim2.new(0, 40, 0, 31)
+close.Font = Enum.Font.GothamBlack
+close.Text = "-"
+close.TextColor3 = Color3.new(0, 255, 0)
+close.BorderSizePixel = 1
+close.BorderColor3 = Color3.new(0, 255, 0)
+close.TextScaled = true
+close.TextSize = 14
+close.TextWrapped = true
+close.MouseButton1Down:connect(function()
+main.Visible = false
+openmain.Visible = true
+end)
+
+openmain.Name = "openmain"
+openmain.Parent = ScreenGui
+openmain.BackgroundColor3 = Color3.new(0, 0, 0)
+openmain.Position = UDim2.new(1, -150, 1, -25)
+openmain.Size = UDim2.new(0, 100, 0, 28)
+openmain.Active = true
+openmain.Draggable = true
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.new(0, 0, 0)
+open.Size = UDim2.new(0, 100, 0, 28)
+open.Font = Enum.Font.GothamBold
+open.Text = "OPEN"
+open.TextColor3 = Color3.new(0, 255, 0)
+open.TextSize = 18
+open.BorderColor3 = Color3.new(0, 255, 0)
+open.BorderSizePixel = 1
+open.TextWrapped = true
+open.MouseButton1Down:connect(function()
+openmain.Visible = false
+main.Visible = true
+end)
