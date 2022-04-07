@@ -1,0 +1,566 @@
+
+
+
+ plr = Game.Players.LocalPlayer
+ ScreenGui = Instance.new("ScreenGui")
+ main = Instance.new("Frame")
+ title = Instance.new("TextLabel")
+ destroy = Instance.new("TextButton")
+ Button1 = Instance.new("TextButton")
+ Button2 = Instance.new("TextButton")
+ Button3 = Instance.new("TextButton")
+ Button4 = Instance.new("TextButton")
+ Button5 = Instance.new("TextButton")
+ Button6 = Instance.new("TextButton")
+ Button7 = Instance.new("TextButton")
+ Button8 = Instance.new("TextButton")
+ Button9 = Instance.new("TextButton")
+ Button10 = Instance.new("TextButton")
+ Button11 = Instance.new("TextButton")
+ Button12 = Instance.new("TextButton")
+ Button13 = Instance.new("TextButton")
+ Button14 = Instance.new("TextButton")
+ Button15 = Instance.new("TextButton")
+ Button16 = Instance.new("TextButton")
+ Button17 = Instance.new("TextButton")
+ Button18 = Instance.new("TextButton")
+ Button19 = Instance.new("TextButton")
+ Button20 = Instance.new("TextButton")
+ Button21 = Instance.new("TextButton")
+ Button22 = Instance.new("TextButton")
+ Button23 = Instance.new("TextButton")
+ Button24 = Instance.new("TextButton")
+ Button25 = Instance.new("TextButton")
+ Button26 = Instance.new("TextButton")
+ close = Instance.new("TextButton")
+ openmain = Instance.new("Frame")
+ open = Instance.new("TextButton")
+--Properties:
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.new(0, 0, 0)
+main.Position = UDim2.new(0.0203577988, 0, 0.641277611, 0)
+main.Size = UDim2.new(0, 332, 0, 211)
+main.BorderSizePixel = 1
+main.BorderColor3 = Color3.new(0, 255, 0)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.new(0.099, 0.099, 0.099)
+title.Size = UDim2.new(0, 252, 0, 31)
+title.Position = UDim2.new(0, 40, 0, 0)
+title.Font = Enum.Font.GothamBold
+title.BorderSizePixel = 1
+title.BorderColor3 = Color3.new(0, 255, 0)
+title.Text = "Title"
+title.TextColor3 = Color3.new(0, 255, 0)
+title.TextSize = 14
+title.TextWrapped = true
+title.TextScaled = true
+
+destroy.Name = "Destroy Gui"
+destroy.Parent = main
+destroy.BackgroundColor3 = Color3.new(0, 0, 0)
+destroy.Position = UDim2.new(0, 0, 0, 0)
+destroy.Size = UDim2.new(0, 40, 0, 31)
+destroy.Font = Enum.Font.GothamBold
+destroy.Text = "X"
+destroy.BorderColor3 = Color3.new(0, 255, 0)
+destroy.BorderSizePixel = 1
+destroy.TextColor3 = Color3.new(0, 255, 0)
+destroy.TextScaled = true
+destroy.TextSize = 14
+destroy.TextWrapped = true
+destroy.MouseButton1Down:connect(function()
+ ScreenGui:Destroy()
+end)
+
+Button1.Name = "Button1"
+Button1.Parent = main
+Button1.BackgroundColor3 = Color3.new(0, 0, 0)
+Button1.Position = UDim2.new(0, 5, 0, 35)
+Button1.Size = UDim2.new(0, 75, 0, 30)
+Button1.Font = Enum.Font.GothamBold
+Button1.Text = "Button1"
+Button1.BorderSizePixel = 1
+Button1.BorderColor3 = Color3.new(0, 255, 0)
+Button1.TextColor3 = Color3.new(0, 255, 0)
+Button1.TextScaled = true
+Button1.TextSize = 14
+Button1.TextWrapped = true
+Button1.MouseButton1Down:connect(function()
+   
+end)
+
+Button2.Name = "Button2"
+Button2.Parent = main
+Button2.BackgroundColor3 = Color3.new(0, 0, 0)
+Button2.Position = UDim2.new(0, 5, 0, 70)
+Button2.Size = UDim2.new(0, 75, 0, 30)
+Button2.Font = Enum.Font.GothamBold
+Button2.Text = "Button2"
+Button2.BorderSizePixel = 1
+Button2.BorderColor3 = Color3.new(0, 255, 0)
+Button2.TextColor3 = Color3.new(0, 255, 0)
+Button2.TextScaled = true
+Button2.TextSize = 14
+Button2.TextWrapped = true
+Button2.MouseButton1Down:connect(function()
+    
+end)
+
+Button3.Name = "Button3"
+Button3.Parent = main
+Button3.BackgroundColor3 = Color3.new(0, 0, 0)
+Button3.Position = UDim2.new(1, -80, 0, 35)
+Button3.Size = UDim2.new(0, 75, 0, 30)
+Button3.Font = Enum.Font.GothamBold
+Button3.Text = "Button3"
+Button3.BorderColor3 = Color3.new(0, 255, 0)
+Button3.BorderSizePixel = 1
+Button3.TextColor3 = Color3.new(0, 255, 0)
+Button3.TextScaled = true
+Button3.TextSize = 14
+Button3.TextWrapped = true
+Button3.MouseButton1Down:connect(function()
+
+end)
+
+Button4.Name = "Button4"
+Button4.Parent = main
+Button4.BackgroundColor3 = Color3.new(0, 0, 0)
+Button4.Position = UDim2.new(1, -80, 0, 70)
+Button4.Size = UDim2.new(0, 75, 0, 30)
+Button4.Font = Enum.Font.GothamBold
+Button4.Text = "Button4"
+Button4.BorderColor3 = Color3.new(0, 255, 0)
+Button4.BorderSizePixel = 1
+Button4.TextColor3 = Color3.new(0, 255, 0)
+Button4.TextScaled = true
+Button4.TextSize = 14
+Button4.TextWrapped = true
+Button4.MouseButton1Down:connect(function()
+
+end)
+
+Button5.Name = "Button5"
+Button5.Parent = main
+Button5.BackgroundColor3 = Color3.new(0, 0, 0)
+Button5.Position = UDim2.new(1, -80, 0, 105)
+Button5.Size = UDim2.new(0, 75, 0, 30)
+Button5.Font = Enum.Font.GothamBold
+Button5.Text = "Button5"
+Button5.BorderColor3 = Color3.new(0, 255, 0)
+Button5.BorderSizePixel = 1
+Button5.TextColor3 = Color3.new(0, 255, 0)
+Button5.TextScaled = true
+Button5.TextSize = 14
+Button5.TextWrapped = true
+Button5.MouseButton1Down:connect(function()
+   
+    end)
+
+Button6.Name = "Button6"
+Button6.Parent = main
+Button6.BackgroundColor3 = Color3.new(0, 0, 0)
+Button6.Position = UDim2.new(0, 5, 0, 105)
+Button6.Size = UDim2.new(0, 75, 0, 30)
+Button6.Font = Enum.Font.GothamBold
+Button6.Text = "Button6"
+Button6.BorderColor3 = Color3.new(0, 255, 0)
+Button6.BorderSizePixel = 1
+Button6.TextColor3 = Color3.new(0, 255, 0)
+Button6.TextScaled = true
+Button6.TextSize = 14
+Button6.TextWrapped = true
+Button6.MouseButton1Down:connect(function()
+   
+    end)
+
+Button7.Name = "Button7"
+Button7.Parent = main
+Button7.BackgroundColor3 = Color3.new(0, 0, 0)
+Button7.Position = UDim2.new(0, 169, 0, 35)
+Button7.Size = UDim2.new(0, 78, 0, 30)
+Button7.Font = Enum.Font.GothamBold
+Button7.Text = "Button7"
+Button7.BorderColor3 = Color3.new(0, 255, 0)
+Button7.BorderSizePixel = 1
+Button7.TextColor3 = Color3.new(0, 255, 0)
+Button7.TextScaled = true
+Button7.TextSize = 14
+Button7.TextWrapped = true
+Button7.MouseButton1Down:connect(function()
+   
+end)
+
+Button8.Name = "Button8"
+Button8.Parent = main
+Button8.BackgroundColor3 = Color3.new(0, 0, 0)
+Button8.Position = UDim2.new(0, 85, 0, 35)
+Button8.Size = UDim2.new(0, 78, 0, 30)
+Button8.Font = Enum.Font.GothamBold
+Button8.Text = "Button8"
+Button8.BorderColor3 = Color3.new(0, 255, 0)
+Button8.BorderSizePixel = 1
+Button8.TextColor3 = Color3.new(0, 255, 0)
+Button8.TextScaled = true
+Button8.TextSize = 14
+Button8.TextWrapped = true
+Button8.MouseButton1Down:connect(function()
+   
+end)
+
+Button9.Name = "Button9"
+Button9.Parent = main
+Button9.BackgroundColor3 = Color3.new(0, 0, 0)
+Button9.Position = UDim2.new(0, 85, 0, 70)
+Button9.Size = UDim2.new(0, 78, 0, 30)
+Button9.Font = Enum.Font.GothamBold
+Button9.Text = "Button9"
+Button9.BorderColor3 = Color3.new(0, 255, 0)
+Button9.BorderSizePixel = 1
+Button9.TextColor3 = Color3.new(0, 255, 0)
+Button9.TextScaled = true
+Button9.TextSize = 14
+Button9.TextWrapped = true
+Button9.MouseButton1Down:connect(function()
+  
+end)
+
+Button10.Name = "Button10"
+Button10.Parent = main
+Button10.BackgroundColor3 = Color3.new(0, 0, 0)
+Button10.Position = UDim2.new(0, 169, 0, 70)
+Button10.Size = UDim2.new(0, 78, 0, 30)
+Button10.Font = Enum.Font.GothamBold
+Button10.Text = "Button10"
+Button10.BorderColor3 = Color3.new(0, 255, 0)
+Button10.BorderSizePixel = 1
+Button10.TextColor3 = Color3.new(0, 255, 0)
+Button10.TextScaled = true
+Button10.TextSize = 14
+Button10.TextWrapped = true
+Button10.MouseButton1Down:connect(function()
+   
+end)
+
+Button11.Name = "Button11"
+Button11.Parent = main
+Button11.BackgroundColor3 = Color3.new(0, 0, 0)
+Button11.Position = UDim2.new(0, 169, 0, 105)
+Button11.Size = UDim2.new(0, 78, 0, 30)
+Button11.Font = Enum.Font.GothamBold
+Button11.Text = "Button11"
+Button11.BorderColor3 = Color3.new(0, 255, 0)
+Button11.BorderSizePixel = 1
+Button11.TextColor3 = Color3.new(0, 255, 0)
+Button11.TextScaled = true
+Button11.TextSize = 14
+Button11.TextWrapped = true
+Button11.MouseButton1Down:connect(function()
+   
+end)
+
+Button12.Name = "Button12"
+Button12.Parent = main
+Button12.BackgroundColor3 = Color3.new(0, 0, 0)
+Button12.Position = UDim2.new(0, 85, 0, 105)
+Button12.Size = UDim2.new(0, 78, 0, 30)
+Button12.Font = Enum.Font.GothamBold
+Button12.Text = "Button12"
+Button12.BorderColor3 = Color3.new(0, 255, 0)
+Button12.BorderSizePixel = 1
+Button12.TextColor3 = Color3.new(0, 255, 0)
+Button12.TextScaled = true
+Button12.TextSize = 14
+Button12.TextWrapped = true
+Button12.MouseButton1Down:connect(function()
+   
+end)
+
+Button13.Name = "Button13"
+Button13.Parent = main
+Button13.BackgroundColor3 = Color3.new(0, 0, 0)
+Button13.Position = UDim2.new(0, 5, 0, 140)
+Button13.Size = UDim2.new(0, 75, 0, 30)
+Button13.Font = Enum.Font.GothamBold
+Button13.Text = "Button13"
+Button13.BorderColor3 = Color3.new(0, 255, 0)
+Button13.BorderSizePixel = 1
+Button13.TextColor3 = Color3.new(0, 255, 0)
+Button13.TextScaled = true
+Button13.TextSize = 14
+Button13.TextWrapped = true
+Button13.MouseButton1Down:connect(function()
+   
+end)
+
+Button14.Name = "Button14"
+Button14.Parent = main
+Button14.BackgroundColor3 = Color3.new(0, 0, 0)
+Button14.Position = UDim2.new(0, 85, 0, 140)
+Button14.Size = UDim2.new(0, 78, 0, 30)
+Button14.Font = Enum.Font.GothamBold
+Button14.Text = "Button14"
+Button14.BorderColor3 = Color3.new(0, 255, 0)
+Button14.BorderSizePixel = 1
+Button14.TextColor3 = Color3.new(0, 255, 0)
+Button14.TextScaled = true
+Button14.TextSize = 14
+Button14.TextWrapped = true
+Button14.MouseButton1Down:connect(function()
+   
+end)
+
+Button15.Name = "Button15"
+Button15.Parent = main
+Button15.BackgroundColor3 = Color3.new(0, 0, 0)
+Button15.Position = UDim2.new(0, 169, 0, 140)
+Button15.Size = UDim2.new(0, 78, 0, 30)
+Button15.Font = Enum.Font.GothamBold
+Button15.Text = "Button15"
+Button15.BorderColor3 = Color3.new(0, 255, 0)
+Button15.BorderSizePixel = 1
+Button15.TextColor3 = Color3.new(0, 255, 0)
+Button15.TextScaled = true
+Button15.TextSize = 14
+Button15.TextWrapped = true
+Button15.MouseButton1Down:connect(function()
+   
+end)
+
+Button16.Name = "Button16"
+Button16.Parent = main
+Button16.BackgroundColor3 = Color3.new(0, 0, 0)
+Button16.Position = UDim2.new(1, -80, 0, 140)
+Button16.Size = UDim2.new(0, 78, 0, 30)
+Button16.Font = Enum.Font.GothamBold
+Button16.Text = "Button16"
+Button16.BorderColor3 = Color3.new(0, 255, 0)
+Button16.BorderSizePixel = 1
+Button16.TextColor3 = Color3.new(0, 255, 0)
+Button16.TextScaled = true
+Button16.TextSize = 14
+Button16.TextWrapped = true
+Button16.MouseButton1Down:connect(function()
+   
+end)
+
+Button17.Name = "Button17"
+Button17.Parent = main
+Button17.BackgroundColor3 = Color3.new(0, 0, 0)
+Button17.Position = UDim2.new(0, 5, 0, 177)
+Button17.Size = UDim2.new(0, 30, 0, 30)
+Button17.Font = Enum.Font.GothamBold
+Button17.Text = "1"
+Button17.BorderColor3 = Color3.new(0, 255, 0)
+Button17.BorderSizePixel = 1
+Button17.TextColor3 = Color3.new(0, 255, 0)
+Button17.TextScaled = true
+Button17.TextSize = 14
+Button17.TextWrapped = true
+Button17.MouseButton1Down:connect(function()
+   
+end)
+
+Button18.Name = "Button18"
+Button18.Parent = main
+Button18.BackgroundColor3 = Color3.new(0, 0, 0)
+Button18.Position = UDim2.new(0, 40, 0, 177)
+Button18.Size = UDim2.new(0, 30, 0, 30)
+Button18.Font = Enum.Font.GothamBold
+Button18.Text = "2"
+Button18.BorderColor3 = Color3.new(0, 255, 0)
+Button18.BorderSizePixel = 1
+Button18.TextColor3 = Color3.new(0, 255, 0)
+Button18.TextScaled = true
+Button18.TextSize = 14
+Button18.TextWrapped = true
+Button18.MouseButton1Down:connect(function()
+   
+end)
+
+Button19.Name = "Button19"
+Button19.Parent = main
+Button19.BackgroundColor3 = Color3.new(0, 0, 0)
+Button19.Position = UDim2.new(0, 75, 0, 177)
+Button19.Size = UDim2.new(0, 30, 0, 30)
+Button19.Font = Enum.Font.GothamBold
+Button19.Text = "3"
+Button19.BorderColor3 = Color3.new(0, 255, 0)
+Button19.BorderSizePixel = 1
+Button19.TextColor3 = Color3.new(0, 255, 0)
+Button19.TextScaled = true
+Button19.TextSize = 14
+Button19.TextWrapped = true
+Button19.MouseButton1Down:connect(function()
+  
+end)
+
+Button20.Name = "Button20"
+Button20.Parent = main
+Button20.BackgroundColor3 = Color3.new(0, 0, 0)
+Button20.Position = UDim2.new(0, 110, 0, 177)
+Button20.Size = UDim2.new(0, 30, 0, 30)
+Button20.Font = Enum.Font.GothamBold
+Button20.Text = "4"
+Button20.BorderColor3 = Color3.new(0, 255, 0)
+Button20.BorderSizePixel = 1
+Button20.TextColor3 = Color3.new(0, 255, 0)
+Button20.TextScaled = true
+Button20.TextSize = 14
+Button20.TextWrapped = true
+Button20.MouseButton1Down:connect(function()
+ 
+end)
+
+Button21.Name = "Button21"
+Button21.Parent = main
+Button21.BackgroundColor3 = Color3.new(0, 0, 0)
+Button21.Position = UDim2.new(0, 145, 0, 177)
+Button21.Size = UDim2.new(0, 30, 0, 30)
+Button21.Font = Enum.Font.GothamBold
+Button21.Text = "5"
+Button21.BorderColor3 = Color3.new(0, 255, 0)
+Button21.BorderSizePixel = 1
+Button21.TextColor3 = Color3.new(0, 255, 0)
+Button21.TextScaled = true
+Button21.TextSize = 14
+Button21.TextWrapped = true
+Button21.MouseButton1Down:connect(function()
+  
+end)
+
+Button22.Name = "Button22"
+Button22.Parent = main
+Button22.BackgroundColor3 = Color3.new(0, 0, 0)
+Button22.Position = UDim2.new(0, 180, 0, 177)
+Button22.Size = UDim2.new(0, 30, 0, 30)
+Button22.Font = Enum.Font.GothamBold
+Button22.Text = "6"
+Button22.BorderColor3 = Color3.new(0, 255, 0)
+Button22.BorderSizePixel = 1
+Button22.TextColor3 = Color3.new(0, 255, 0)
+Button22.TextScaled = true
+Button22.TextSize = 14
+Button22.TextWrapped = true
+Button22.MouseButton1Down:connect(function()
+ 
+end)
+
+Button23.Name = "Button23"
+Button23.Parent = main
+Button23.BackgroundColor3 = Color3.new(0, 0, 0)
+Button23.Position = UDim2.new(0, 215, 0, 177)
+Button23.Size = UDim2.new(0, 30, 0, 30)
+Button23.Font = Enum.Font.GothamBold
+Button23.Text = "7"
+Button23.BorderColor3 = Color3.new(0, 255, 0)
+Button23.BorderSizePixel = 1
+Button23.TextColor3 = Color3.new(0, 255, 0)
+Button23.TextScaled = true
+Button23.TextSize = 14
+Button23.TextWrapped = true
+Button23.MouseButton1Down:connect(function()
+  
+end)
+
+Button24.Name = "Button24"
+Button24.Parent = main
+Button24.BackgroundColor3 = Color3.new(0, 0, 0)
+Button24.Position = UDim2.new(0, 250, 0, 177)
+Button24.Size = UDim2.new(0, 30, 0, 30)
+Button24.Font = Enum.Font.GothamBold
+Button24.Text = "8"
+Button24.BorderColor3 = Color3.new(0, 255, 0)
+Button24.BorderSizePixel = 1
+Button24.TextColor3 = Color3.new(0, 255, 0)
+Button24.TextScaled = true
+Button24.TextSize = 14
+Button24.TextWrapped = true
+Button24.MouseButton1Down:connect(function()
+  
+end)
+
+Button25.Name = "Button25"
+Button25.Parent = main
+Button25.BackgroundColor3 = Color3.new(0, 0, 0)
+Button25.Position = UDim2.new(0, 285, 0, 177)
+Button25.Size = UDim2.new(0, 30, 0, 30)
+Button25.Font = Enum.Font.GothamBold
+Button25.Text = "9"
+Button25.BorderColor3 = Color3.new(0, 255, 0)
+Button25.BorderSizePixel = 1
+Button25.TextColor3 = Color3.new(0, 255, 0)
+Button25.TextScaled = true
+Button25.TextSize = 14
+Button25.TextWrapped = true
+Button25.MouseButton1Down:connect(function()
+  
+end)
+
+Button26.Name = "Button26"
+Button26.Parent = main
+Button26.BackgroundColor3 = Color3.new(0, 0, 0)
+Button26.Position = UDim2.new(0, 320, 0, 177)
+Button26.Size = UDim2.new(0, 30, 0, 30)
+Button26.Font = Enum.Font.GothamBold
+Button26.Text = "10"
+Button26.BorderColor3 = Color3.new(0, 255, 0)
+Button26.BorderSizePixel = 1
+Button26.TextColor3 = Color3.new(0, 255, 0)
+Button26.TextScaled = true
+Button26.TextSize = 14
+Button26.TextWrapped = true
+Button26.MouseButton1Down:connect(function()
+  
+end)
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.new(0.099, 0.099, 0.099)
+close.Position = UDim2.new(0.879518092, 0, 0, 0)
+close.Size = UDim2.new(0, 40, 0, 31)
+close.Font = Enum.Font.GothamBlack
+close.Text = "-"
+close.TextColor3 = Color3.new(0, 255, 0)
+close.BorderSizePixel = 1
+close.BorderColor3 = Color3.new(0, 255, 0)
+close.TextScaled = true
+close.TextSize = 14
+close.TextWrapped = true
+close.MouseButton1Down:connect(function()
+main.Visible = false
+openmain.Visible = true
+end)
+
+openmain.Name = "openmain"
+openmain.Parent = ScreenGui
+openmain.BackgroundColor3 = Color3.new(0, 0, 0)
+openmain.Position = UDim2.new(1, -150, 1, -25)
+openmain.Size = UDim2.new(0, 100, 0, 28)
+openmain.Active = true
+openmain.Draggable = true
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.new(0, 0, 0)
+open.Size = UDim2.new(0, 100, 0, 28)
+open.Font = Enum.Font.GothamBold
+open.Text = "OPEN"
+open.TextColor3 = Color3.new(0, 255, 0)
+open.TextSize = 18
+open.BorderColor3 = Color3.new(0, 255, 0)
+open.BorderSizePixel = 1
+open.TextWrapped = true
+open.MouseButton1Down:connect(function()
+openmain.Visible = false
+main.Visible = true
+end)
