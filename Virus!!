@@ -496,7 +496,7 @@ Button11.BackgroundColor3 = Color3.new(0, 0, 0)
 Button11.Position = UDim2.new(0, 169, 0, 105)
 Button11.Size = UDim2.new(0, 78, 0, 30)
 Button11.Font = Enum.Font.GothamBold
-Button11.Text = "Button11"
+Button11.Text = "Flyjump"
 Button11.BorderColor3 = Color3.new(0, 255, 0)
 Button11.BorderSizePixel = 1
 Button11.TextColor3 = Color3.new(0, 255, 0)
@@ -504,7 +504,17 @@ Button11.TextScaled = true
 Button11.TextSize = 14
 Button11.TextWrapped = true
 Button11.MouseButton1Down:connect(function()
-   
+  if Button11.Text == "Flyjump" then
+Button11.Text = "Unjump"
+InfiniteJumpEnabled = game:GetService("UserInputService").JumpRequest:connect(function()
+
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+end)
+elseif Button11.Text == "Unjump" then
+Button11.Text = "Flyjump"
+	if InfiniteJumpEnabled then InfiniteJumpEnabled:Disconnect() end
+
+end 
 end)
 
 Button12.Name = "Button12"
@@ -513,7 +523,7 @@ Button12.BackgroundColor3 = Color3.new(0, 0, 0)
 Button12.Position = UDim2.new(0, 85, 0, 105)
 Button12.Size = UDim2.new(0, 78, 0, 30)
 Button12.Font = Enum.Font.GothamBold
-Button12.Text = "Button12"
+Button12.Text = "Fly with part"
 Button12.BorderColor3 = Color3.new(0, 255, 0)
 Button12.BorderSizePixel = 1
 Button12.TextColor3 = Color3.new(0, 255, 0)
@@ -521,7 +531,50 @@ Button12.TextScaled = true
 Button12.TextSize = 14
 Button12.TextWrapped = true
 Button12.MouseButton1Down:connect(function()
-   
+	local LocalPlayer = game.Players.LocalPlayer
+		local torso = LocalPlayer.Character:FindFirstChild("Torso")
+		if torso == nil then
+			torso = LocalPlayer.Character:FindFirstChild("LowerTorso")
+		end
+		local emitter = Instance.new("ParticleEmitter")
+		emitter.Transparency = NumberSequence.new(0.5)
+		emitter.Rate = 20
+		emitter.Speed = NumberRange.new(3)
+		emitter.Lifetime = NumberRange.new(1)
+		emitter.SpreadAngle = Vector2.new(360, 360)
+		emitter.Parent = torso
+		emitter.Texture = "rbxassetid://6882037552"
+		emitter.Size = NumberSequence.new(1.5)
+		emitter.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+		-- nagatoro music
+		if workspace:FindFirstChild("love is goonee") == nil then
+			local sound = Instance.new("Sound")
+			sound.Name = "love is goonee"
+			sound.SoundId = "rbxassetid://6086082898"
+			sound.Playing = true
+			sound.Looped = true
+			sound.Volume = 1
+			sound.Parent = workspace
+		end
+	       flying = true
+		-- platform under you so you fly
+		while(flying) do
+			local leg = LocalPlayer.Character:FindFirstChild("Right Leg")
+			if leg == nil then
+				leg = LocalPlayer.Character:FindFirstChild("RightLowerLeg")
+			end
+			local position = Vector3.new(leg.Position.X, leg.Position.Y-2, leg.Position.Z)
+			local part = Instance.new("Part")
+			part.Color = Color3.fromRGB(170, 0, 170)
+			part.Material = Enum.Material.Neon
+			part.Transparency = 1
+			part.Position = position
+			part.Size = Vector3.new(6, 0.25, 6)
+			part.Anchored = true
+			part.Parent = workspace
+			wait(0)
+			part:Destroy()
+end
 end)
 
 Button13.Name = "Button13"
