@@ -212,7 +212,10 @@ local rootpart = getRoot(plr.Character)
 	if not rootpart then return end
 	flingtbl.OldPos = rootpart.CFrame
 	local Char = plr.Character:GetChildren()
-		flingtbl.bv:Destroy()
+		flingtbl.bv.MaxTorque = Vector3.new(0, 0, 0)
+		flingtbl.bv.P = 0
+		flingtbl.bv.AngularVelocity = Vector3.new(0, 0, 0)
+flingtbl.bv:Destroy()
 		flingtbl.Noclipping2:Disconnect()
 	
 	for i, v in next, Char do
@@ -225,31 +228,12 @@ local rootpart = getRoot(plr.Character)
 			rootpart.CFrame = flingtbl.OldPos
 			rootpart.Velocity = flingtbl.OldVelocity
 	end)
-	wait(0)
-	rootpart.Anchored = true
-		flingtbl.isRunning:Disconnect()
-	rootpart.Anchored = false
-		rootpart.Velocity = flingtbl.OldVelocity
-		rootpart.CFrame = flingtbl.OldPos
-	flinging = false
-		end
-	end)
 	wait(2)
 	rootpart.Anchored = true
-	if flingtbl.isRunning ~= nil then
 		flingtbl.isRunning:Disconnect()
-		flingtbl.isRunning = nil
-	end
 	rootpart.Anchored = false
-	if flingtbl.OldVelocity ~= nil then
 		rootpart.Velocity = flingtbl.OldVelocity
-	end
-	if flingtbl.OldPos ~= nil then
 		rootpart.CFrame = flingtbl.OldPos
-	end
-	wait()
-	flingtbl.OldVelocity = nil
-	flingtbl.OldPos = nil
 	flinging = false
 end
 end)
@@ -335,7 +319,11 @@ Button4.TextScaled = true
 Button4.TextSize = 14
 Button4.TextWrapped = true
 Button4.MouseButton1Down:connect(function()
+recefm = plr.Character.HumanoidRootPart.CFrame
 plr.Character:Destroy()
+plr.CharacterAdded:wait():WaitForChild"Humanoid"
+plr.Character.HumanoidRootPart.CFrame = recefm
+
 end)
 
 Button5.Name = "Button5"
