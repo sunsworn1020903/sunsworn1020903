@@ -451,7 +451,7 @@ Button7.Text = "Uncham"
 active=true
 elseif Button7.Text == "Uncham" then
 Button7.Text = "Chams"
-ctive=false
+active=false
 target = COREGUI:FindFirstChildWhichIsA"Folder"
 d(target)
  end
