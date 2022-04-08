@@ -531,6 +531,8 @@ Button12.TextScaled = true
 Button12.TextSize = 14
 Button12.TextWrapped = true
 Button12.MouseButton1Down:connect(function()
+    if Button12.Text =="Fly with part" then
+Button12.Text ="Remove"
 	local LocalPlayer = game.Players.LocalPlayer
 		local torso = LocalPlayer.Character:FindFirstChild("Torso")
 		if torso == nil then
@@ -574,6 +576,14 @@ Button12.MouseButton1Down:connect(function()
 			part.Parent = workspace
 			wait(0)
 			part:Destroy()
+			end
+			elseif Button12.Text=="Remove" then
+Button12.Text ="Fly with part"
+flying=false
+d(part)
+d(sound)
+d(emitter)
+		
 end
 end)
 
