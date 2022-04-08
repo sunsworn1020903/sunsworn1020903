@@ -212,14 +212,9 @@ local rootpart = getRoot(plr.Character)
 	if not rootpart then return end
 	flingtbl.OldPos = rootpart.CFrame
 	local Char = plr.Character:GetChildren()
-	if flingtbl.bv ~= nil then
 		flingtbl.bv:Destroy()
-		flingtbl.bv = nil
-	end
-	if flingtbl.Noclipping2 ~= nil then
 		flingtbl.Noclipping2:Disconnect()
-		flingtbl.Noclipping2 = nil
-	end
+	
 	for i, v in next, Char do
 		if v:IsA("BasePart") then
 			v.CanCollide = true
@@ -227,11 +222,16 @@ local rootpart = getRoot(plr.Character)
 		end
 	end
 	flingtbl.isRunning = game:GetService("RunService").Stepped:Connect(function()
-		if flingtbl.OldPos ~= nil then
 			rootpart.CFrame = flingtbl.OldPos
-		end
-		if flingtbl.OldVelocity ~= nil then
 			rootpart.Velocity = flingtbl.OldVelocity
+	end)
+	wait(0)
+	rootpart.Anchored = true
+		flingtbl.isRunning:Disconnect()
+	rootpart.Anchored = false
+		rootpart.Velocity = flingtbl.OldVelocity
+		rootpart.CFrame = flingtbl.OldPos
+	flinging = false
 		end
 	end)
 	wait(2)
