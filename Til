@@ -1,324 +1,207 @@
--- Q & E - bring closer and further
--- R - Roates Block
--- T - Tilts Block
--- Y - Throws Block
-local function a(b, c)
-    local d = getfenv(c)
-    local e =
-        setmetatable(
-        {},
-        {__index = function(self, f)
-                if f == "script" then
-                    return b
-                else
-                    return d[f]
-                end
-            end}
-    )
-    setfenv(c, e)
-    return c
+--[[
+	local vel = Instance.new("BodyVelocity", game.Players.LocalPlayer.Character.Torso)
+vel.Velocity = game.Players.LocalPlayer.Character.Torso.CFrame.lookVector * -5
+vel.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+--]]
+--Credit To Rufus14
+--I just edit it a bit ^_^
+mouse = game.Players.LocalPlayer:GetMouse()
+function ragdoll()
+game.Players.LocalPlayer.Character.Archivable = true
+clone = game.Players.LocalPlayer.Character:Clone()
+clone.Parent = workspace
+for i,v in pairs(clone:GetChildren()) do
+	if v.ClassName == "Script" or v.ClassName == "LocalScript" then
+		v:destroy()
+	end
+	for i,p in pairs(v:GetChildren()) do
+	if p.ClassName == "Weld" or p.ClassName == "Motor6D" or p.ClassName == "BodyVelocity" then
+		p:destroy()
+	end
 end
-local g = {}
-local h = Instance.new("Model", game:GetService("Lighting"))
-local i = Instance.new("Tool")
-local j = Instance.new("Part")
-local k = Instance.new("Script")
-local l = Instance.new("LocalScript")
-local m = sethiddenproperty or set_hidden_property
-i.Name = "Telekinesis"
-i.Parent = h
-i.Grip = CFrame.new(0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-i.GripForward = Vector3.new(-0, -1, -0)
-i.GripRight = Vector3.new(0, 0, 1)
-i.GripUp = Vector3.new(1, 0, 0)
-j.Name = "Handle"
-j.Parent = i
-j.CFrame = CFrame.new(-17.2635937, 15.4915619, 46, 0, 1, 0, 1, 0, 0, 0, 0, -1)
-j.Orientation = Vector3.new(0, 180, 90)
-j.Position = Vector3.new(-17.2635937, 15.4915619, 46)
-j.Rotation = Vector3.new(-180, 0, -90)
-j.Color = Color3.new(0.0666667, 0.0666667, 0.0666667)
-j.Transparency = 1
-j.Size = Vector3.new(1, 1.20000005, 1)
-j.BottomSurface = Enum.SurfaceType.Weld
-j.BrickColor = BrickColor.new("Really black")
-j.Material = Enum.Material.Metal
-j.TopSurface = Enum.SurfaceType.Smooth
-j.brickColor = BrickColor.new("Really black")
-k.Name = "LineConnect"
-k.Parent = i
-table.insert(
-    g,
-    a(
-        k,
-        function()
-            wait()
-            local n = script.Part2
-            local o = script.Part1.Value
-            local p = script.Part2.Value
-            local q = script.Par.Value
-            local color = script.Color
-            local r = Instance.new("Part")
-            r.TopSurface = 0
-            r.BottomSurface = 0
-            r.Reflectance = .5
-            r.Name = "Laser"
-            r.Locked = true
-            r.CanCollide = false
-            r.Anchored = true
-            r.formFactor = 0
-            r.Size = Vector3.new(1, 1, 1)
-            local s = Instance.new("BlockMesh")
-            s.Parent = r
-            while true do
-                if n.Value == nil then
-                    break
-                end
-                if o == nil or p == nil or q == nil then
-                    break
-                end
-                if o.Parent == nil or p.Parent == nil then
-                    break
-                end
-                if q.Parent == nil then
-                    break
-                end
-                local t = CFrame.new(o.Position, p.Position)
-                local dist = (o.Position - p.Position).magnitude
-                r.Parent = q
-                r.BrickColor = color.Value.BrickColor
-                r.Reflectance = color.Value.Reflectance
-                r.Transparency = color.Value.Transparency
-                r.CFrame = CFrame.new(o.Position + t.lookVector * dist / 2)
-                r.CFrame = CFrame.new(r.Position, p.Position)
-                s.Scale = Vector3.new(.25, .25, dist)
-                wait()
-            end
-            r:remove()
-            script:remove()
-        end
-    )
-)
-k.Disabled = true
-l.Name = "MainScript"
-l.Parent = i
-table.insert(
-    g,
-    a(
-        l,
-        function()
-            wait()
-            tool = script.Parent
-            lineconnect = tool.LineConnect
-            object = nil
-            mousedown = false
-            found = false
-            BP = Instance.new("BodyPosition")
-            BP.maxForce = Vector3.new(math.huge * math.huge, math.huge * math.huge, math.huge * math.huge)
-            BP.P = BP.P * 1.1
-            dist = nil
-            point = Instance.new("Part")
-            point.Locked = true
-            point.Anchored = true
-            point.formFactor = 0
-            point.Shape = 0
-            point.BrickColor = BrickColor.Black()
-            point.Size = Vector3.new(1, 1, 1)
-            point.CanCollide = false
-            local s = Instance.new("SpecialMesh")
-            s.MeshType = "Sphere"
-            s.Scale = Vector3.new(.7, .7, .7)
-            s.Parent = point
-            handle = tool.Handle
-            front = tool.Handle
-            color = tool.Handle
-            objval = nil
-            local u = false
-            local v = BP:clone()
-            v.maxForce = Vector3.new(30000, 30000, 30000)
-            function LineConnect(o, p, q)
-                local w = Instance.new("ObjectValue")
-                w.Value = o
-                w.Name = "Part1"
-                local x = Instance.new("ObjectValue")
-                x.Value = p
-                x.Name = "Part2"
-                local y = Instance.new("ObjectValue")
-                y.Value = q
-                y.Name = "Par"
-                local z = Instance.new("ObjectValue")
-                z.Value = color
-                z.Name = "Color"
-                local A = lineconnect:clone()
-                A.Disabled = false
-                w.Parent = A
-                x.Parent = A
-                y.Parent = A
-                z.Parent = A
-                A.Parent = workspace
-                if p == object then
-                    objval = x
-                end
-            end
-            function onButton1Down(B)
-                if mousedown == true then
-                    return
-                end
-                mousedown = true
-                coroutine.resume(
-                    coroutine.create(
-                        function()
-                            local C = point:clone()
-                            C.Parent = tool
-                            LineConnect(front, C, workspace)
-                            while mousedown == true do
-                                C.Parent = tool
-                                if object == nil then
-                                    if B.Target == nil then
-                                        local t = CFrame.new(front.Position, B.Hit.p)
-                                        C.CFrame = CFrame.new(front.Position + t.lookVector * 1000)
-                                    else
-                                        C.CFrame = CFrame.new(B.Hit.p)
-                                    end
-                                else
-                                    LineConnect(front, object, workspace)
-                                    break
-                                end
-                                wait()
-                            end
-                            C:remove()
-                        end
-                    )
-                )
-                while mousedown == true do
-                    if B.Target ~= nil then
-                        local D = B.Target
-                        if D.Anchored == false then
-                            object = D
-                            dist = (object.Position - front.Position).magnitude
-                            break
-                        end
-                    end
-                    wait()
-                end
-                while mousedown == true do
-                    if object.Parent == nil then
-                        break
-                    end
-                    local t = CFrame.new(front.Position, B.Hit.p)
-                    BP.Parent = object
-                    BP.position = front.Position + t.lookVector * dist
-                    wait()
-                end
-                BP:remove()
-                object = nil
-                objval.Value = nil
-            end
-            function onKeyDown(E, B)
-                local E = E:lower()
-                local F = false
-                if E == "q" then
-                    if dist >= 5 then
-                        dist = dist - 10
-                    end
-                end
-                if E == "r" then
-                    if object == nil then
-                        return
-                    end
-                    for G, H in pairs(object:children()) do
-                        if H.className == "BodyGyro" then
-                            return nil
-                        end
-                    end
-                    BG = Instance.new("BodyGyro")
-                    BG.maxTorque = Vector3.new(math.huge, math.huge, math.huge)
-                    BG.cframe = CFrame.new(object.CFrame.p)
-                    BG.Parent = object
-                    repeat
-                        wait()
-                    until object.CFrame == CFrame.new(object.CFrame.p)
-                    BG.Parent = nil
-                    if object == nil then
-                        return
-                    end
-                    for G, H in pairs(object:children()) do
-                        if H.className == "BodyGyro" then
-                            H.Parent = nil
-                        end
-                    end
-                    object.Velocity = Vector3.new(0, 0, 0)
-                    object.RotVelocity = Vector3.new(0, 0, 0)
-                    object.Orientation = Vector3.new(0, 0, 0)
-                end
-                if E == "e" then
-                    dist = dist + 10
-                end
-                if E == "t" then
-                    if dist ~= 10 then
-                        dist = 10
-                    end
-                end
-                if E == "y" then
-                    if dist ~= 200 then
-                        dist = 200
-                    end
-                end
-                if E == "=" then
-                    BP.P = BP.P * 1.5
-                end
-                if E == "-" then
-                    BP.P = BP.P * 0.5
-                end
-            end
-            function onEquipped(B)
-                keymouse = B
-                local I = tool.Parent
-                human = I.Humanoid
-                human.Changed:connect(
-                    function()
-                        if human.Health == 0 then
-                            mousedown = false
-                            BP:remove()
-                            point:remove()
-                            tool:remove()
-                        end
-                    end
-                )
-                B.Button1Down:connect(
-                    function()
-                        onButton1Down(B)
-                    end
-                )
-                B.Button1Up:connect(
-                    function()
-                        mousedown = false
-                    end
-                )
-                B.KeyDown:connect(
-                    function(E)
-                        onKeyDown(E, B)
-                    end
-                )
-                B.Icon = "rbxasset://textures\\GunCursor.png"
-            end
-            tool.Equipped:connect(onEquipped)
-        end
-    )
-)
-for J, H in pairs(h:GetChildren()) do
-    H.Parent = game:GetService("Players").LocalPlayer.Backpack
-    pcall(
-        function()
-            H:MakeJoints()
-        end
-    )
 end
-h:Destroy()
-for J, H in pairs(g) do
-    spawn(
-        function()
-            pcall(H)
-        end
-    )
+for i,t in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+	if t.ClassName == "Accessory" or t.ClassName == "ForceField" then
+		t:destroy()
+	end
 end
+vel = Instance.new("BodyVelocity", clone.Torso)
+vel.Velocity = clone.Torso.CFrame.lookVector * -5
+vel.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+clone.Head.face.Texture = "http://www.roblox.com/asset/?id=161061608"
+using = false
+hit = Instance.new("Sound", clone.Torso)
+hit.SoundId = "rbxassetid://260430060"
+hit.Volume = 5
+hit1 = Instance.new("Sound", clone.Torso)
+hit1.SoundId = "rbxassetid://138087186"
+hit1.Volume = 5
+hit2 = Instance.new("Sound", clone.Torso)
+hit2.SoundId = "rbxassetid://131237241"
+hit2.Volume = 5
+hit3 = Instance.new("Sound", clone.Torso)
+hit3.SoundId = "rbxassetid://278062209"
+hit3.Volume = 5
+hit3.TimePosition = 0.33
+ded = Instance.new("Sound", clone.Torso)
+ded.SoundId = "rbxassetid://163154423"
+ded.Volume = 5
+local leftarm = clone:findFirstChild("Left Arm")
+local rightrm = clone:findFirstChild("Right Arm")
+local leftleg = clone:findFirstChild("Left Leg")
+local rightleg = clone:findFirstChild("Right Leg")
+local head = clone:findFirstChild("Head")
+local welding = Instance.new("Weld", clone.Torso)
+welding.Part0 = clone.Torso
+welding.Part1 = head
+welding.C0 = welding.C0 * CFrame.new(0,1.5,0)
+for i, g in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+	if g.ClassName == "Part" then
+		g:destroy()
+	end
+end
+for i, h in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+	if h.ClassName == "Accesory" then
+		h:destroy()
+	end
+end
+game.Workspace.CurrentCamera.CameraSubject = head
+if leftleg ~= nil then
+local glue = Instance.new("Glue", clone.Torso)
+glue.Part0 = clone.Torso
+glue.Part1 = leftleg
+glue.Name = "Left leg"
+local collider = Instance.new("Part", leftleg)
+collider.Position = Vector3.new(0,999,0)
+collider.Size = Vector3.new(1.7, 1, 1)
+collider.Shape = "Cylinder"
+local weld = Instance.new("Weld", collider)
+weld.Part0 = leftleg
+weld.Part1 = collider
+weld.C0 = CFrame.Angles(0, 0, 80)
+collider.TopSurface = "Smooth"
+collider.BottomSurface = "Smooth"
+collider.formFactor = "Symmetric"
+glue.C0 = CFrame.new(-0.5, -1, 0, -0, -0, -1, 0, 1, 0, 1, 0, 0)
+glue.C1 = CFrame.new(-0, 1, 0, -0, -0, -1, 0, 1, 0, 1, 0, 0)
+collider.Transparency = 1
+end
+------------
+if rightleg ~= nil then
+local glue1 = Instance.new("Glue", clone.Torso)
+glue1.Part0 = clone.Torso
+glue1.Part1 = rightleg
+glue1.Name = "Right leg"
+local collider1 = Instance.new("Part", rightleg)
+collider1.Position = Vector3.new(0,999,0)
+collider1.Size = Vector3.new(1.7, 1, 1)
+collider1.Shape = "Cylinder"
+local weld1 = Instance.new("Weld", collider1)
+weld1.Part0 = rightleg
+weld1.Part1 = collider1
+weld1.C0 = CFrame.Angles(0, 0, 80)
+collider1.TopSurface = "Smooth"
+collider1.BottomSurface = "Smooth"
+collider1.formFactor = "Symmetric"
+glue1.C0 = CFrame.new(0.5, -1, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+glue1.C1 = CFrame.new(0, 1, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+collider1.Transparency = 1
+end
+------------
+if rightrm ~= nil then
+local glue11 = Instance.new("Glue", clone.Torso)
+glue11.Part0 = clone.Torso
+glue11.Part1 = rightrm
+glue11.Name = "Right shoulder"
+local collider11 = Instance.new("Part", rightrm)
+collider11.Position = Vector3.new(0,9999,0)
+collider11.Size = Vector3.new(1.8,1,1)
+collider11.Shape = "Cylinder"
+local weld11 = Instance.new("Weld", collider11)
+weld11.Part0 = rightrm
+weld11.Part1 = collider11
+weld11.C0 = CFrame.Angles(0, 0, 80)
+collider11.TopSurface = "Smooth"
+collider11.BottomSurface = "Smooth"
+collider11.formFactor = "Symmetric"
+glue11.C0 = CFrame.new(1.5, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
+glue11.C1 = CFrame.new(0, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
+collider11.Transparency = 1
+end
+------------
+if leftarm ~= nil then
+local glue111 = Instance.new("Glue", clone.Torso)
+glue111.Part0 = clone.Torso
+glue111.Part1 = leftarm
+glue111.Name = "Left shoulder"
+local collider111 = Instance.new("Part", leftarm)
+collider111.Position = Vector3.new(0,9999,0)
+collider111.Size = Vector3.new(1.8,1,1)
+collider111.Shape = "Cylinder"
+local weld111 = Instance.new("Weld", collider111)
+weld111.Part0 = leftarm
+weld111.Part1 = collider111
+weld111.C0 = CFrame.Angles(0, 0, 80)
+collider111.TopSurface = "Smooth"
+collider111.BottomSurface = "Smooth"
+collider111.formFactor = "Symmetric"
+glue111.C0 = CFrame.new(-1.5, 0.5, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+glue111.C1 = CFrame.new(0, 0.5, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+collider111.Transparency = 1
+----------------
+sensoring = Instance.new("Part", clone.Torso)
+sensoring.Size = Vector3.new(1.2,1.1,0.8)
+sensoring.CanCollide = false
+sensoring.Position = clone.Torso.Position
+local welder = Instance.new("Weld", sensoring)
+welder.Part0 = clone.Torso
+welder.Part1 = sensoring
+welder.C0 = welder.C0 * CFrame.new(0,0,1.05)
+sensoring.Transparency = 1
+-----------------
+sensoring1 = Instance.new("Part", clone.Torso)
+sensoring1.Size = Vector3.new(1.2,1.1,0.8)
+sensoring1.CanCollide = false
+sensoring1.Position = clone.Torso.Position
+local welder1 = Instance.new("Weld", sensoring)
+welder1.Part0 = clone.Torso
+welder1.Part1 = sensoring1
+welder1.C0 = welder1.C0 * CFrame.new(0,0,-1.05)
+sensoring1.Transparency = 1
+end
+clone.Name = game.Players.LocalPlayer.Character.Name.." (DEAD)"
+ded:Play()
+vel:destroy()
+wait(0.5)
+local function touch()
+	if not using then
+		using = true
+		local Math = math.random(1,4)
+		if Math == 1 then
+			hit:Play()
+		end
+		if Math == 2 then
+			hit1:Play()
+		end
+		if Math == 3 then
+			hit2:Play()
+		end
+		if Math == 4 then
+			hit3:Play()
+		end
+		wait(0.1)
+		using = false
+	end
+end
+sensoring.Touched:connect(touch)
+sensoring1.Touched:connect(touch)
+wait(4.47)
+hit1.Volume = 0
+hit2.Volume = 0
+hit3.Volume = 0
+hit.Volume = 0
+		end
+
+game.Players.LocalPlayer.Character.Humanoid.Died:connect(ragdoll)
+
+--di ent
