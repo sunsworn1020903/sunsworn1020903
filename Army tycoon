@@ -365,7 +365,7 @@ TextButton_4.TextColor3 = Color3.new(0, 0, 0)
 TextButton_4.TextSize = 14
 TextButton_4.MouseButton1Down:connect(function()
     if TextButton_4.Text == 'Lag Players' then
-local timer = 35 
+local timer = 100
 local loop = true
 while loop do
 for i,v in pairs(game.Players:GetChildren()) do
@@ -375,7 +375,7 @@ if v.Name ~= Game.Players.LocalPlayer.Name then
  
  TextButton_4.Text = 'Wait '..timer
 TextButton.Text = 'Wait '..timer
- wait(1)
+ wait(0)
  timer = timer - 1
  if timer < 0 then
 loop = false
