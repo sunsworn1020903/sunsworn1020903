@@ -48,6 +48,7 @@ TextButton.Text = "Kill All Units"
 TextButton.TextColor3 = Color3.new(0, 0, 0)
 TextButton.TextSize = 14
 TextButton.MouseButton1Down:connect(function()
+    if TextButton.Text == 'Kill All Units' then
 for i,v in pairs(game.Workspace.Game.Units:GetChildren()) do
 if v.Name == game.Players.LocalPlayer.Name then
 else
@@ -55,6 +56,7 @@ for i,v2 in pairs(v:GetChildren()) do
 local Missile = "Cruise Missile"
 local Position = v2.Torso.Position
 game:GetService("ReplicatedStorage").RE.FireMissile:FireServer(Missile, Position)
+end
 end
 end
 end
@@ -375,7 +377,7 @@ if v.Name ~= Game.Players.LocalPlayer.Name then
 TextButton.Text = 'Wait '..timer
  wait(1)
  timer = timer - 1
- if TextButton_4.Text == 'Wait 0' then
+ if timer < 0 then
 loop = false
 TextButton_4.Text = 'Lag Players'
 TextButton.Text = 'Kill All Units'
