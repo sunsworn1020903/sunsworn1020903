@@ -364,16 +364,18 @@ TextButton_4.TextSize = 14
 TextButton_4.MouseButton1Down:connect(function()
     if TextButton_4.Text == 'Lag Players' then
 local timer = 35 
+local loop = true
 for i,v in pairs(game.Players:GetChildren()) do
 if v.Name ~= Game.Players.LocalPlayer.Name then
-while true do
+while loop do
  targetPos = v.Character.HumanoidRootPart.Position
  game.ReplicatedStorage.RE.FireMissile:FireServer("Nuke",targetPos)
  
  TextButton_4.Text = 'Wait '..timer
  wait(1)
  timer = timer - 1
- if timer == 0 then
+ if TextButton_4.Text == 'Wait 0' then
+loop = false
 TextButton_4.Text = 'Lag Players'
 break
  end
