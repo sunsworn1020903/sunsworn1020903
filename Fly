@@ -27,6 +27,7 @@ local UICorner_7 = Instance.new("UICorner")
 
 --Properties:
 
+ScreenGui.Name = 'huhuhuajajajajajaowowowo'
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
