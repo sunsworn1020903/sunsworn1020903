@@ -7,9 +7,9 @@ local delete_it = Game.Players.LocalPlayer.PlayerGui:FindFirstChild'huhuhuajajaj
 local delete_it_2 = Game.Players.LocalPlayer.PlayerGui:FindFirstChild'FlyScript'
 
 if delete_it and delete_it_2 then
-delete_it and delete_it_2:remove()
+delete_it:remove()
+delete_it_2:remove()
 end
-
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local UIGradient = Instance.new("UIGradient")
