@@ -172,7 +172,8 @@ TextButton2.Size = UDim2.new(0.379999995, 0, 0.25, 0)
 TextButton2.Font = Enum.Font.SourceSansBold
 TextButton2.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
 TextButton2.PlaceholderText = "Speed"
-TextButton2.Text = ""
+TextButton2.Text = "50"
+TextButton2.ClearTextOnFocus = false
 TextButton2.TextScaled = true
 TextButton2.TextWrapped = true
 
@@ -261,9 +262,9 @@ local function VQZY_fake_script() -- Frame_2.FlyManager
 	local flyg
 	local IsRunning = false
 	local f = 0
-	local Speed = 50
+	local Speed = TextButton2.Text
 	local LastSpeed = Speed
-	local maxspeed = 100
+	local maxspeed = 500
 	local wdown = false
 	local sdown = false
 	Mouse.KeyDown:Connect(function(key)
@@ -566,15 +567,6 @@ local function TOSK_fake_script() -- FlyScript.FlyManager
 			script.Parent.Frame.IsOn.TextColor3 = Color3.fromRGB(0,255,0)
 			Player.Character:WaitForChild('Humanoid').PlatformStand = true
 			end
-	end)
-	script.Parent.Frame.TextButton2.FocusLost:Connect(function(Entered)
-		if Entered then
-			local BeginSpeed = tonumber(script.Parent.Frame.TextButton2.Text)
-			if BeginSpeed ~= nil then
-				Speed = BeginSpeed
-				print(BeginSpeed)
-			end
-		end	
 	end)
 	
 	
