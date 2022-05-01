@@ -337,7 +337,7 @@ local function VQZY_fake_script() -- Frame_2.FlyManager
 			wait()
 		if IsFlying then
 			
-				flyg.CFrame = workspace.CurrentCamera.CoordinateFrame * tonumber(TextButton2.Text) 
+				flyg.CFrame = workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((f+0)*50*Speed/maxspeed),0,0) 
 					flyv.Velocity = workspace.CurrentCamera.CoordinateFrame.LookVector * tonumber(TextButton2.Text) 
 					wait(0.1)
 				
@@ -585,7 +585,7 @@ local function TOSK_fake_script() -- FlyScript.FlyManager
 			wait()
 		if IsFlying then
 			
-				flyg.CFrame = workspace.CurrentCamera.CoordinateFrame * tonumber(TextButton2.Text) 
+				flyg.CFrame = workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((f+0)*50*Speed/maxspeed),0,0) 
 					flyv.Velocity = workspace.CurrentCamera.CoordinateFrame.LookVector * tonumber(TextButton2.Text) 
 					wait(0.1)
 				
