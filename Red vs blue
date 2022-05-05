@@ -268,6 +268,7 @@ local CanBeChanged = true
 local auto_activate = true
 local Always_kill = false
 local auto_equip = true
+local auto_kill_when_ForceField = false
 
 local Button3=Button2:Clone()
 Button3.Name = "Button3"
@@ -282,13 +283,11 @@ wait()
     if CanBeChanged == true then
 for i,v in pairs(GetPlayer(Textbox1.Text)) do
 local ClassicSword = speaker.Backpack.ClassicSword
-
 if auto_equip == true then
 ClassicSword.Parent = speaker.Character
 elseif auto_equip == false then
 
 end
-
 loopping = true
 while loopping and wait() do
 local pak = Players.localPlayer
@@ -297,17 +296,14 @@ local hrp = Players[b].Character:FindFirstChild("HumanoidRootPart")
 pcall(function()
 hrp.CFrame = pak.Character.HumanoidRootPart.CFrame * CFrame.new(1.5,0,-3.2)
 if auto_activate == true then
-pak.Character:FindFirstChild"ClassicSword":Activate()
+pak.Character.ClassicSword:Activate()
 elseif auto_activate == false then
 
 end
-if auto_equip == true then
-if pak.Backpack:FindFirstChild"ClassicSword" then
-pak.Backpack:FindFirstChild"ClassicSword".Parent = pak.Character
-else
 
-end
-elseif auto_equip == false then
+if pak.Backpack:FindFirstChild"ClassicSword" then
+pak.Backpack.ClassicSword.Parent = pak.Character
+elseif pak.Character:FindFirstChild"ClassicSword" then
 
 end
 end)
@@ -331,6 +327,17 @@ notify("Target has ben killed", 5)
 speaker.Character.ClassicSword.Parent = speaker.Backpack
 break
 end
+elseif auto_kill_when_ForceField == true then
+for m,n in pairs(Players[v].Character:GetDescendants()) do
+if n:IsA"ForceField" then
+loopping = false
+notify("the target has a ForceField", 5)
+speaker.Character.ClassicSword.Parent = speaker.Backpack
+break
+end
+end
+elseif auto_kill_when_ForceField == false then
+
 end
 end
 end
