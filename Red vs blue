@@ -300,12 +300,6 @@ pak.Character.ClassicSword:Activate()
 elseif auto_activate == false then
 
 end
-
-if pak.Backpack:FindFirstChild"ClassicSword" then
-pak.Backpack.ClassicSword.Parent = pak.Character
-elseif pak.Character:FindFirstChild"ClassicSword" then
-
-end
 end)
 end
 if Players[v].Character.Humanoid.Health == 0 then
@@ -327,7 +321,7 @@ notify("Target has ben killed", 5)
 speaker.Character.ClassicSword.Parent = speaker.Backpack
 break
 end
-elseif auto_kill_when_ForceField == true then
+elseif auto_kill_when_ForceField == false then
 for m,n in pairs(Players[v].Character:GetDescendants()) do
 if n:IsA"ForceField" then
 loopping = false
@@ -336,7 +330,7 @@ speaker.Character.ClassicSword.Parent = speaker.Backpack
 break
 end
 end
-elseif auto_kill_when_ForceField == false then
+elseif auto_kill_when_ForceField == true then
 
 end
 end
