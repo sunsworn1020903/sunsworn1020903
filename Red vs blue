@@ -1,0 +1,627 @@
+--use loadstring if u want an update
+--the others button is coming soon
+
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "sun-Gui", 
+Text = "use biggest width on ur setting to be small the gui, my width is 596",
+Duration = 591,
+Button1 = "Ok"})
+
+function GetPlayer(String)
+   local Found = {}
+   local strl = String:lower()
+       for i,v in pairs(game.Players:GetPlayers()) do
+           if v.Name:lower():sub(1, #String) == String:lower() and v.Name ~= Game.Players.LocalPlayer.Name then
+               table.insert(Found,v.Name)
+           end
+       end    
+      if strl == 'others' or strl == "others " then
+for i,v in pairs(game.Players:GetPlayers()) do
+if v.Name ~= Game.Players.LocalPlayer.Name and v.TeamColor ~= Game.Players.LocalPlayer.TeamColor then
+table.insert(Found, v.Name)
+end
+end
+end
+   return Found    
+end
+
+local core=Game.CoreGui
+local remit=core:FindFirstChild"screen"
+local remthefolder=game:FindFirstChild"for all"
+local remthepart=workspace:FindFirstChild"apapaoalalal"
+if remthepart and remit and remthefolder then
+remthepart:remove()
+remit:remove()
+remthefolder:remove()
+end
+
+local speaker=Game.Players.localPlayer
+local core=Game.CoreGui
+local Players = Game.Players
+local text=" | v1.02, by sunsworn1"
+
+ins={
+   but=Instance.new
+}
+
+local part = Instance.new("Part")
+
+part.Name = "apapaoalalal"
+part.Parent=workspace
+part.Anchored=true
+part.Size = Vector3.new(50000,200,50000)
+part.Position=Vector3.new(137, 5000, -3530)
+
+screen=ins.but("ScreenGui", core)
+hidemain=ins.but("Frame", screen)
+main2=ins.but("Frame", screen)
+main=ins.but("ScrollingFrame", main2)
+title=ins.but("TextLabel", main2)
+destroy=ins.but("TextButton", main)
+Button1=ins.but("TextButton", hidemain)
+Button2=ins.but("TextButton", main)
+Label1=ins.but("TextLabel", main)
+Textbox1=ins.but("TextBox", main)
+Button4=ins.but("TextButton", main)
+
+function des(target)
+    target:Destroy()
+    end
+
+ color={
+    border=Color3.fromRGB(0,0,0),
+    background=Color3.fromRGB(0,255,255)
+
+    
+}
+
+pos={
+    posleft=UDim2.new(0, 4, 0, 15),
+    posright=UDim2.new(0, 204, 0, 15),
+    posbos=UDim2.new(0, 104, 0, 15),
+    posboz2=UDim2.new(0, 150, 0, 65),
+    size=UDim2.new(0, 91, 0, 32),
+    posbosright=UDim2.new(0, 0, 0, 65),
+    posbosleft=UDim2.new(0, 4, 0, 55)
+    
+}
+screen.Name="screen"
+
+
+hidemain.Name = "hidemain"
+hidemain.Active = false
+hidemain.BackgroundColor3 = color.background
+hidemain.BorderColor3 = Color3.fromRGB(0,0,0)
+hidemain.Draggable = false
+hidemain.ZIndex=100
+hidemain.Position = UDim2.new(1, -249, 1, -40)
+hidemain.BorderSizePixel=5
+hidemain.Size = UDim2.new(0, 85, 0, 27)
+hidemain.ClipsDescendants = true
+
+
+main2.Name = "main2"
+main2.Active = true
+main2.BackgroundColor3 = color.background
+main2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+main2.Draggable = true
+main2.BorderSizePixel=1
+main2.Visible=false
+main2.ZIndex=100
+main2.BackgroundTransparency=0
+main2.Position = UDim2.new(0, 708, 0, 11)
+main2.Size = UDim2.new(0, 302, 0, 424)
+main2.ClipsDescendants = true
+
+
+main.Name = "main"
+main.Active = false
+main.BackgroundColor3 = color.background
+main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+main.Draggable = false
+main.BorderSizePixel=0
+main.BackgroundTransparency=0
+main.Visible=true
+main.ZIndex=200
+main.ScrollBarImageColor3=Color3.fromRGB(0,0,0)
+main.BackgroundTransparency=.3
+main.Position = UDim2.new(1,-301,1,-387)
+main.Size = UDim2.new(0, 300, 0, 386)
+main.ClipsDescendants = true
+main.CanvasSize=UDim2.new(0,0,1,173)
+main.ScrollingDirection="Y"
+main.ScrollBarImageTransparency=0
+main.ScrollBarThickness=6
+
+
+title.Name = "title"
+title.BackgroundColor3 = color.background
+title.BackgroundTransparency=1
+title.Size = UDim2.new(0,295,0,30)
+title.Position = UDim2.new(0, 2, 0, 3)
+title.BorderSizePixel = 1
+title.ZIndex=200
+title.BorderColor3 = color.border
+title.Text = "Red vs Blue Plane Wars!"..text
+title.TextColor3 = Color3.fromRGB(0,0,0)
+title.TextSize = 19
+title.TextWrapped = true
+title.TextScaled = true
+
+
+destroy.Name = "Destroy Gui"
+destroy.BackgroundColor3 = Color3.fromRGB(255,0,0)
+destroy.Position = UDim2.new(0, 4, 0, 559)
+destroy.Size = UDim2.new(0, 285, 0, 27)
+destroy.Text = "Destroy Gui"
+destroy.ZIndex=300
+destroy.BorderColor3 = Color3.fromRGB(0,0,0)
+destroy.BorderSizePixel = 1
+destroy.TextColor3 = Color3.fromRGB(0, 0, 0)
+destroy.TextScaled = true
+destroy.TextSize = 14
+destroy.TextWrapped = true
+destroy.MouseButton1Down:connect(function()
+    des(core.screen)
+    des(game:FindFirstChild"for all")
+    des(workspace['apapaoalalal'])
+game:GetService("StarterGui"):SetCore("SendNotification", {
+			Title = "the GUI was ";Text = "removed ";
+			Duration = 5;
+		})
+	
+end)
+
+
+Label1.Name = "Label1"
+Label1.BackgroundColor3 = color.background
+Label1.BackgroundTransparency=0
+Label1.Size = UDim2.new(0,60,0,10)
+Label1.Position = UDim2.new(0,117,0,80)
+Label1.BorderSizePixel = 1
+Label1.Draggable=false
+Label1.ZIndex=300
+Label1.Active=false
+Label1.Visible=true
+Label1.BorderColor3 = color.border
+Label1.Text = "nil"
+Label1.TextColor3 = Color3.fromRGB(0,0,0)
+Label1.TextSize = 14
+Label1.TextWrapped = true
+Label1.TextScaled = true
+
+
+Button1.Name = "Button1"
+Button1.BackgroundColor3 = color.background
+Button1.Position = UDim2.new(0,0,0,0)
+Button1.Size = UDim2.new(0, 85, 0, 27)
+Button1.Text = "OPEN"
+Button1.BorderSizePixel = 0
+Button1.BorderColor3 = color.border
+Button1.TextColor3 = Color3.fromRGB(0,0,0)
+Button1.TextScaled=true
+Button1.TextSize = 19
+Button1.ZIndex=300
+Button1.TextWrapped=true
+Button1.MouseButton1Click:Connect(function()
+    if Button1.Text=="OPEN" then
+Button1.Text="CLOSE"
+    main2.Visible=true
+elseif Button1.Text=="CLOSE" then
+Button1.Text="OPEN"
+    main2.Visible=false
+		
+end
+    end)
+
+
+Button2.Name = "Button2"
+Button2.BackgroundColor3 = color.background
+Button2.Position = pos.posleft
+Button2.Size = UDim2.new(0, 85, 0, 27)
+Button2.Text = "TP to Part"
+Button2.Draggable=false
+Button2.BorderSizePixel = 1
+Button2.BorderColor3 = color.border
+Button2.TextColor3 = Color3.fromRGB(0,0,0)
+Button2.TextScaled=true
+Button2.TextSize = 14
+Button2.ZIndex=300
+Button2.TextWrapped=true
+local folder = Instance.new("Folder", game)
+folder.Name="for all"
+
+Button2.MouseButton1Click:Connect(function()
+
+   speaker.Character.HumanoidRootPart.CFrame=CFrame.new(137, 5018, -3530)
+
+end)
+
+
+Textbox1.Name = "Textbox1"
+Textbox1.BackgroundColor3 = color.background
+Textbox1.Position = UDim2.new(0,4,0,69)
+Textbox1.Size = UDim2.new(0, 101, 0, 30)
+Textbox1.Text = ""
+Textbox1.ZIndex=300
+Textbox1.Draggable=false
+Textbox1.PlaceholderText = "Player Name"
+Textbox1.ClearTextOnFocus = true
+Textbox1.MultiLine = false
+Textbox1.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+Textbox1.BorderSizePixel = 1
+Textbox1.BorderColor3 = color.border
+Textbox1.TextColor3 = Color3.fromRGB(0, 0, 0)
+Textbox1.TextScaled = true
+Textbox1.TextSize = 14
+Textbox1.TextWrapped = true
+
+local function notify(Text, Duration)
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+        Title = "sun-Gui", 
+Text = Text,
+Duration = Duration})
+    end
+local loopping = false
+local CanBeChanged = true
+local auto_activate = true
+local Always_kill = false
+local auto_equip = true
+
+local Button3=Button2:Clone()
+Button3.Name = "Button3"
+Button3.Parent=main
+Button3.Position=UDim2.new(0,11,0,104)
+Button3.Text="Kill"
+Button3.MouseButton1Click:Connect(function()
+   if Textbox1.Text == "others" or Textbox1.Text == "others " or Textbox1.Text == "other" or Textbox1.Text == "other " then
+Textbox1.Text = "others"
+end
+wait()
+    if CanBeChanged == true then
+for i,v in pairs(GetPlayer(Textbox1.Text)) do
+local ClassicSword = speaker.Backpack.ClassicSword
+
+if auto_equip == true then
+ClassicSword.Parent = speaker.Character
+elseif auto_equip == false then
+
+end
+
+loopping = true
+while loopping and wait() do
+local pak = Players.localPlayer
+    for i,b in pairs(GetPlayer(Textbox1.Text)) do
+local hrp = Players[b].Character:FindFirstChild("HumanoidRootPart") 
+pcall(function()
+hrp.CFrame = pak.Character.HumanoidRootPart.CFrame * CFrame.new(1.5,0,-3.2)
+if auto_activate == true then
+pak.Character:FindFirstChild"ClassicSword":Activate()
+elseif auto_activate == false then
+
+end
+if auto_equip == true then
+if pak.Character:FindFirstChild"ClassicSword" then
+
+else
+pak.Backpack:FindFirstChild"ClassicSword".Parent = pak.Character
+end
+elseif auto_equip == false then
+
+end
+end)
+end
+if Players[v].Character.Humanoid.Health == 0 then
+loopping = false
+notify("Target has ben killed", 5)
+speaker.Character.ClassicSword.Parent = speaker.Backpack
+break
+elseif Always_kill == false then
+if Players[v].Character.Humanoid.Sit == true then
+loopping = false
+notify("Target is Sitting ", 5)
+speaker.Character.ClassicSword.Parent = speaker.Backpack
+break
+end
+elseif Always_kill == true then
+if Players[v].Character.Humanoid.Health == 0 then
+loopping = false
+notify("Target has ben killed", 5)
+speaker.Character.ClassicSword.Parent = speaker.Backpack
+break
+end
+end
+end
+end
+elseif CanBeChanged == false then
+
+end
+    end)
+
+
+cam = game.Workspace.CurrentCamera
+
+
+local Label2=Label1:Clone()
+Label2.Name="Label2"
+Label2.Parent=main
+Label2.Text="nil"
+Label2.Size = UDim2.new(0, 101, 0, 30)
+Label2.Position=UDim2.new(0,188,0,69)
+Label2.BackgroundTransparency=0
+Label2.Visible=true
+
+function get()
+	for _,v in pairs(game.Players:GetPlayers())do
+		if v.Name == Label2.Text then
+			return(_)
+		end
+	end
+end
+
+local Button5=Button3:Clone()
+Button5.Name="Button5"
+Button5.Parent=main
+Button5.Size = UDim2.new(0,40,0,27)
+Button5.Position=UDim2.new(0,196,0,104)
+Button5.Text="<"
+Button5.MouseButton1Click:Connect(function()
+        wait(.1)
+    local players = game.Players:GetPlayers()
+    local num = get()
+    if not pcall(function() 
+        cam.CameraSubject = players[num-1].Character.Humanoid
+        end) then
+        cam.CameraSubject = players[#players].Character.Humanoid
+    end
+pcall(function()
+        local Player_Team= game.Players:GetPlayerFromCharacter(cam.CameraSubject.Parent).TeamColor
+    part.BrickColor=Player_Team
+                Label2.Text = game.Players:GetPlayerFromCharacter(cam.CameraSubject.Parent).Name
+Label1.Text="Team Color"
+Label1.BackgroundColor3=part.Color
+Label1.TextColor3=Color3.fromRGB(255,255,255)
+        end)
+end)
+
+
+local Button6=Button5:Clone()
+Button6.Name="Button6"
+Button6.Parent=main
+Button6.Text=">"
+Button6.Size = UDim2.new(0, 40, 0, 27)
+Button6.Position=UDim2.new(0,239,0,104)
+Button6.MouseButton1Click:Connect(function()
+      
+    wait(.1)
+    local players = game.Players:GetPlayers()
+    local num = get()
+    if not pcall(function() 
+        cam.CameraSubject = players[num+1].Character.Humanoid
+        end) then
+        cam.CameraSubject = players[1].Character.Humanoid
+    end
+pcall(function()
+    local Player_Team= game.Players:GetPlayerFromCharacter(cam.CameraSubject.Parent).TeamColor
+    part.BrickColor=Player_Team
+                Label2.Text = game.Players:GetPlayerFromCharacter(cam.CameraSubject.Parent).Name
+Label1.Text="Team Color"
+Label1.BackgroundColor3=part.Color
+Label1.TextColor3=Color3.fromRGB(255,255,255)
+
+        end)
+end)
+
+
+local Button7=Button2:Clone()
+Button7.Name="Button7"
+Button7.Parent=main
+Button7.Position=pos.posbos
+Button7.Text="Break"
+Button7.MouseButton1Click:Connect(function()
+if loopping == true then
+loopping = false
+notify("Loop Stopped", 5)
+speaker.Character:FindFirstChild"ClassicSword".Parent = speaker.Backpack
+elseif loopping == false then
+
+end
+end)
+
+
+Button4.Name = "Button4"
+Button4.BackgroundColor3 = color.background
+Button4.Position = pos.posright
+Button4.Size = UDim2.new(0, 85, 0, 27)
+Button4.Text = "Unspectate"
+Button4.Draggable=false
+Button4.BorderSizePixel = 1
+Button4.BorderColor3 = color.border
+Button4.TextColor3 = Color3.fromRGB(0,0,0)
+Button4.TextScaled=true
+Button4.TextSize = 14
+Button4.ZIndex=300
+Button4.TextWrapped=true
+Button4.MouseButton1Click:Connect(function()
+   cam.CameraSubject=speaker.Character
+end)
+
+
+local main3 = Instance.new("Frame")
+main3.Name = "main3"
+main3.Parent = main
+main3.Size = UDim2.new(0, 240, 0, 373)
+main3.Position = UDim2.new(0, 30, 0, 150)
+main3.ZIndex = 300
+main3.Visible = false
+
+
+local Button8 = Button7:Clone()
+Button8.Name = "Button8"
+Button8.Parent = main
+Button8.Text = ">"
+Button8.Position = UDim2.new(0, 4, 0, 150)
+Button8.Size = UDim2.new(0, 20, 0, 373)
+Button8.MouseButton1Click:Connect(function()
+    if Button8.Text == ">" then
+main3.Visible = true
+Button8.Text = "<"
+elseif Button8.Text == "<" then
+main3.Visible = false
+Button8.Text = ">"
+end
+end)
+
+
+local Label3 = Label2:Clone()
+Label3.Name = "Label3"
+Label3.Parent = main2
+Label3.Text = ""
+Label3.Position = UDim2.new(0, 0, 0, 35)
+Label3.Size = UDim2.new(0, 302, 0, 5)
+Label3.BorderSizePixel = 0
+
+local Label4 = Label2:Clone()
+Label4.Name = "Label4"
+Label4.Parent = main3
+Label4.Size = UDim2.new(0, 240, 0, 20)
+Label4.Text = "Settings"
+Label4.Position = UDim2.new(0, 0, 0, 0)
+
+local Button11
+local auto = true
+local Button9 = Button6:Clone()
+Button9.Name = "Button9"
+Button9.Parent = main3
+Button9.Text = "auto Activate"
+Button9.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+Button9.Position = UDim2.new(0, 0, 0, 30)
+Button9.Size = UDim2.new(0, 100, 0, 27)
+Button9.MouseButton1Click:Connect(function()
+   if auto_activate == true then
+    Button9.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    auto_activate = false
+elseif auto_activate == false then
+Button9.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+    auto_activate = true
+
+end
+end)
+
+local always = true
+local Button10 = Button9:Clone()
+Button10.Name = "Button10"
+Button10.Parent = main3
+Button10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Button10.Text = "Always kill"
+Button10.Position = UDim2.new(0, 137, 0, 30)
+Button10.MouseButton1Click:Connect(function()
+if Always_kill == false then
+Button10.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+    Always_kill = true
+Button11.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+notify("Always_kill is when the target is sitting the loop waits on the target Until it is no longer sitting", 10)
+elseif Always_kill == true then
+Button10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    Always_kill = false
+Button11.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+end
+end)
+
+local Default = true
+ Button11 = Button9:Clone()
+Button11.Name = "Button11"
+Button11.Parent = main3
+Button11.Text = "Default"
+Button11.Position = UDim2.new(0, 0, 0, 60)
+Button11.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+Button11.MouseButton1Click:Connect(function()
+    if Default == true then
+Button11.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    Always_kill = true
+auto_activate = true
+auto_equip = true
+Button9.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+Button10.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+Default = false
+elseif Default == false then
+Button11.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+    Always_kill = false
+auto_activate = true
+auto_equip = true
+Button9.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+Button10.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Default = true
+end
+end)
+
+
+local function rain()
+    script=ins.but("Script", hidemain)
+script.Name="Rainbow"
+
+while true do
+		script.Parent.BorderColor3 = Color3.new(255/255,0/255,0/255)
+		for i = 0,255,10 do
+			wait()
+			script.Parent.BorderColor3 = Color3.new(255/255,i/255,0/255)
+		end
+		for i = 255,0,-10 do
+			wait()
+			script.Parent.BorderColor3 = Color3.new(i/255,255/255,0/255)
+		end
+		for i = 0,255,10 do
+			wait()
+			script.Parent.BorderColor3= Color3.new(0/255,255/255,i/255)
+		end
+		for i = 255,0,-10 do
+			wait()
+			script.Parent.BorderColor3= Color3.new(0/255,i/255,255/255)
+		end
+		for i = 0,255,10 do
+			wait()
+			script.Parent.BorderColor3= Color3.new(i/255,0/255,255/255)
+		end
+		for i = 255,0,-10 do
+			wait()
+			script.Parent.BorderColor3= Color3.new(255/255,0/255,i/255)
+			wait()
+end
+end
+end
+coroutine.wrap(rain)()
+local function rain2()
+    script2=ins.but("LocalScript", Label3)
+script2.Name="Rainbow"
+
+while true do
+		script2.Parent.BackgroundColor3 = Color3.new(255/255,0/255,0/255)
+		for i = 0,255,10 do
+			wait()
+			script2.Parent.BackgroundColor3 = Color3.new(255/255,i/255,0/255)
+		end
+		for i = 255,0,-10 do
+			wait()
+			script2.Parent.BackgroundColor3 = Color3.new(i/255,255/255,0/255)
+		end
+		for i = 0,255,10 do
+			wait()
+			script2.Parent.BackgroundColor3= Color3.new(0/255,255/255,i/255)
+		end
+		for i = 255,0,-10 do
+			wait()
+			script2.Parent.BackgroundColor3= Color3.new(0/255,i/255,255/255)
+		end
+		for i = 0,255,10 do
+			wait()
+			script2.Parent.BackgroundColor3= Color3.new(i/255,0/255,255/255)
+		end
+		for i = 255,0,-10 do
+			wait()
+			script2.Parent.BackgroundColor3= Color3.new(255/255,0/255,i/255)
+			wait()
+end
+end
+end
+coroutine.wrap(rain2)()
