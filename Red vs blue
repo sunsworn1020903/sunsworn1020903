@@ -257,6 +257,12 @@ Textbox1.TextScaled = true
 Textbox1.TextSize = 14
 Textbox1.TextWrapped = true
 
+Textbox1.FocusLost:Connect(function()
+   if Textbox1.Text == "others" or Textbox1.Text == "others " or Textbox1.Text == "other" or Textbox1.Text == "other " then
+Textbox1.Text = "others"
+end 
+end)
+
 local function notify(Text, Duration)
     game:GetService("StarterGui"):SetCore("SendNotification",{
         Title = "sun-Gui", 
@@ -268,7 +274,6 @@ local CanBeChanged = true
 local auto_activate = true
 local Always_kill = false
 local auto_equip = true
-local auto_kill_when_ForceField = false
 
 local Button3=Button2:Clone()
 Button3.Name = "Button3"
@@ -276,9 +281,7 @@ Button3.Parent=main
 Button3.Position=UDim2.new(0,11,0,104)
 Button3.Text="Kill"
 Button3.MouseButton1Click:Connect(function()
-   if Textbox1.Text == "others" or Textbox1.Text == "others " or Textbox1.Text == "other" or Textbox1.Text == "other " then
-Textbox1.Text = "others"
-end
+  
 wait()
     if CanBeChanged == true then
 for i,v in pairs(GetPlayer(Textbox1.Text)) do
@@ -318,28 +321,6 @@ elseif Always_kill == true then
 if Players[v].Character.Humanoid.Health == 0 then
 loopping = false
 notify("Target has ben killed", 5)
-speaker.Character.ClassicSword.Parent = speaker.Backpack
-break
-end
-elseif auto_kill_when_ForceField == false then
-for m,n in pairs(Players[v].Character:GetDescendants()) do
-if n:IsA"ForceField" then
-loopping = false
-notify("the target has a ForceField", 5)
-speaker.Character.ClassicSword.Parent = speaker.Backpack
-break
-end
-end
-elseif auto_kill_when_ForceField == true then
-if Players[v].Character.Humanoid.Health == 0 then
-loopping = false
-notify("Target has ben killed", 5)
-speaker.Character.ClassicSword.Parent = speaker.Backpack
-break
-end
-if Players[v].Character.Humanoid.Sit == true then
-loopping = false
-notify("Target is Sitting ", 5)
 speaker.Character.ClassicSword.Parent = speaker.Backpack
 break
 end
