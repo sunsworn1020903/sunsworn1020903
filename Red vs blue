@@ -302,10 +302,10 @@ elseif auto_activate == false then
 
 end
 if auto_equip == true then
-if pak.Character:FindFirstChild"ClassicSword" then
-
-else
+if pak.Backpack:FindFirstChild"ClassicSword" then
 pak.Backpack:FindFirstChild"ClassicSword".Parent = pak.Character
+else
+
 end
 elseif auto_equip == false then
 
