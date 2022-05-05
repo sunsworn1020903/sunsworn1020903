@@ -331,7 +331,18 @@ break
 end
 end
 elseif auto_kill_when_ForceField == true then
-
+if Players[v].Character.Humanoid.Health == 0 then
+loopping = false
+notify("Target has ben killed", 5)
+speaker.Character.ClassicSword.Parent = speaker.Backpack
+break
+end
+if Players[v].Character.Humanoid.Sit == true then
+loopping = false
+notify("Target is Sitting ", 5)
+speaker.Character.ClassicSword.Parent = speaker.Backpack
+break
+end
 end
 end
 end
