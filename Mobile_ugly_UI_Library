@@ -9,13 +9,14 @@ end
 
 local Notify = {}
 
+local function ToWorkTheNotify()
  function Notify:notify(Text, Title, Duration)
     game:GetService("StarterGui"):SetCore("SendNotification",{
  Title = Title, 
  Text = Text,
  Duration = Duration,
 })
-
+end
 return Notify
     end
 
@@ -104,5 +105,10 @@ local idk_is_that_Button = {}
     end
 return idk_is_that_Button
 end
+pcall( ToWorkTheNotify )
 return idk_is_that
+
+
+
+
 
