@@ -1,4 +1,7 @@
 local idk_is_that = {}
+
+ function idk_is_that:NewWindow(Title)
+     
 local idk = Game.CoreGui:FindFirstChild("Anti-Abuse")  
 if idk then
 idk:remove()
@@ -16,7 +19,7 @@ local Players = Game.Players
 local plr = Players.LocalPlayer
 
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "Anti-Abuse"
+ScreenGui.Name = Title
 ScreenGui.Parent = Game.CoreGui
 
 local Frame = Instance.new("Frame")
@@ -35,7 +38,7 @@ TextLabel.BorderSizePixel = 0
 TextLabel.Font = Enum.Font.GothamBold
 TextLabel.Selectable = true
 TextLabel.Size = UDim2.fromOffset(202, 16)
-TextLabel.Text = "Anti-Abuse"
+TextLabel.Text = Title
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14
 TextLabel.TextTruncate = Enum.TextTruncate.AtEnd
@@ -79,8 +82,9 @@ UIListLayout.Name = "UIListLayout"
 UIListLayout.Parent = ScrollingFrame
 UIListLayout.Padding = UDim.new(0, 5)
 
+local idk_is_that_Button = {}
 
-   function idk_is_that:NewButton(Name, Text, callback)
+   function idk_is_that_Button:NewButton(Name, Text, callback)
        callback = callback or function() end
        Name = Name or "Button"
        Text = Text or "Button"
@@ -91,7 +95,13 @@ UIListLayout.Padding = UDim.new(0, 5)
     Button.Text = Text
     Button.Size = UDim2.fromOffset(152, 21)
     Button.BackgroundColor3 = Color3.fromHex("04afec")
+    Button.MouseButton1Click:connect(function()
+        callback = callback
+        end)
     end
+return idk_is_that_Button
+end
 
--- Button s:
+return idk_is_that
+
 
