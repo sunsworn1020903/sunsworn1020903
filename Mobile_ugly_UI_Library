@@ -2,14 +2,16 @@ local idk_is_that = {}
 
  function idk_is_that:NewWindow(Title)
      
-local idk = Game.CoreGui:FindFirstChild("Anti-Abuse")  
+local idk = Game.CoreGui:FindFirstChild(Title)  
 if idk then
 idk:remove()
 end
 
-local function notify(Text, Duration)
+local Notify = {}
+
+ function Notify:notify(Text, Title, Duration)
     game:GetService("StarterGui"):SetCore("SendNotification",{
- Title = "sun-Gui", 
+ Title = Title, 
  Text = Text,
  Duration = Duration,
 })
@@ -95,9 +97,9 @@ local idk_is_that_Button = {}
     Button.Text = Text
     Button.Size = UDim2.fromOffset(152, 21)
     Button.BackgroundColor3 = Color3.fromHex("04afec")
-    Button.MouseButton1Click:connect(function()
-        callback = callback
-        end)
+    Button.MouseButton1Click:connect(callback)
+        
+       
     end
 return idk_is_that_Button
 end
