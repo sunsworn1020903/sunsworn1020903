@@ -7,19 +7,6 @@ if idk then
 idk:remove()
 end
 
-local Notify = {}
-
-local function ToWorkTheNotify()
- function Notify:notify(Text, Title, Duration)
-    game:GetService("StarterGui"):SetCore("SendNotification",{
- Title = Title, 
- Text = Text,
- Duration = Duration,
-})
-end
-return Notify
-    end
-
 local Players = Game.Players
 local plr = Players.LocalPlayer
 
@@ -87,9 +74,9 @@ UIListLayout.Name = "UIListLayout"
 UIListLayout.Parent = ScrollingFrame
 UIListLayout.Padding = UDim.new(0, 5)
 
-local idk_is_that_Button = {}
+local for_All = {}
 
-   function idk_is_that_Button:NewButton(Name, Text, callback)
+   function for_All:NewButton(Name, Text, callback)
        callback = callback or function() end
        Name = Name or "Button"
        Text = Text or "Button"
@@ -103,8 +90,19 @@ local idk_is_that_Button = {}
     Button.MouseButton1Click:connect(callback)
       
     end
-pcall( ToWorkTheNotify )
-return idk_is_that_Button
+
+ function for_All:Notify(Text, Title, Duration)
+     Text = Text or "Text"
+     Title = Title or "sun-UI Library"
+     Duration = Duration or 5
+     
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+ Title = Title, 
+ Text = Text,
+ Duration = Duration,
+})
+  end
+return for_All
 end
 return idk_is_that
 
