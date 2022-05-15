@@ -103,9 +103,9 @@ local idk_is_that_Button = {}
     Button.MouseButton1Click:connect(callback)
       
     end
+pcall( ToWorkTheNotify )
 return idk_is_that_Button
 end
-pcall( ToWorkTheNotify )
 return idk_is_that
 
 
