@@ -77,10 +77,10 @@ UIListLayout.Padding = UDim.new(0, 5)
 local for_All = {}
 
 function for_All:reSize()
-        local y = 0
+        local y = 152
         for i, v in pairs(ScrollingFrame:GetChildren()) do
             if v:IsA("TextButton") or v:IsA("TextLabel") or v:IsA("TextBox") then
-                y = y + v.AbsoluteSize.X
+                y = y * v.AbsoluteSize.Y
             end
         end
         ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, y)
