@@ -1,0 +1,115 @@
+
+local CoastingLibrary = loadstring(game:HttpGet("https://pastebin.com/raw/3gQQtaKX"))()       
+
+local LavaTab = CoastingLibrary:CreateTab("Main")
+local MainSection = LavaTab:CreateSection("Main")
+
+local Place = Game.Workspace
+local Players = Game.Players
+local plr = Players.LocalPlayer
+local Saved = ""
+local Farming = ""
+local Tpwalkval = ""
+local willing = ""
+
+MainSection:CreateButton("VIP", function(Button)
+    if Place:FindFirstChild"VIP" then
+    Place.VIP:Remove()
+    else
+    Button.Text = "VIP not found"
+    wait(1)
+    Button.Text = "VIP"
+    end
+end)
+
+MainSection:CreateButton("Save Pos", function(Text)
+    if Text.Text == "Save Pos" then
+    Text.Text = "Saved"
+    if Farming == "Connection" then
+    Farming:Disconnect()
+    end
+    recent = plr.Character.HumanoidRootPart.CFrame
+    wait()
+    Saved = plr.CharacterAdded:connect(function()
+           wait()
+           plr.Character.HumanoidRootPart.CFrame = recent
+       end)
+    else
+Text.Text = "Save Pos"
+Saved:Disconnect()
+    end
+end)
+
+MainSection:CreateButton("Farm", function(Button)
+    if Button.Text == "Farm" then
+    Button.Text = "Farming"
+    if Saved == "Connection" then
+    Saved:Disconnect()
+    end
+    plr.Character.HumanoidRootPart.CFrame = CFrame.new(32, 59, -437)
+    wait()
+    recent = plr.Character.HumanoidRootPart.CFrame
+    
+    Farming = plr.CharacterAdded:connect(function()
+           wait()
+           plr.Character.HumanoidRootPart.CFrame = recent
+       end)
+    else
+    Button.Text = "Farm"
+    Farming:Disconnect()
+    end
+end)
+
+MainSection:CreateButton("Fix", function(Button)
+    
+    Saved:Disconnect()
+    Farming:Disconnect()
+    
+end)
+
+MainSection:CreateSlider("TP walk", 1, 20, 1, false, function(value)
+    Tpwalkval = value
+end)
+
+MainSection:CreateButton("TP walk", function(Button)
+    if Button.Text == "TP walk" then
+    Button.Text = "TP walking"
+       local hb = game:GetService("RunService").Heartbeat
+	tpwalking = true
+	local chr = plr.Character
+	local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+	while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+		if hum.MoveDirection.Magnitude > 0 then
+				chr:TranslateBy(hum.MoveDirection * tonumber(Tpwalkval or 1))
+			else
+				chr:TranslateBy(hum.MoveDirection)
+      end
+   end
+    else
+    Button.Text = "TP walk"
+    tpwalking = false
+    end
+end)
+
+MainSection:CreateToggle("Visible fly main", function(value)
+    willing = value
+end)
+
+MainSection:CreateButton("Fly", function(Button)
+    if plr.PlayerGui:FindFirstChild"huhuhuajajajajajaowowowo" then
+Button.Text = "Already have"
+wait(1)
+Button.Text = "Fly"
+else
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/sunsworn1020903/sunsworn1020903/main/Fly2'), true))()
+ plr.PlayerGui.huhuhuajajajajajaowowowo.Frame.Visible = willing
+
+plr.CharacterAdded:connect(function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/sunsworn1020903/sunsworn1020903/main/Fly2'), true))()
+ plr.PlayerGui.huhuhuajajajajajaowowowo.Frame.Visible = willing
+
+       end)
+    end
+end)
+
+
