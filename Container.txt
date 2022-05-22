@@ -1,0 +1,742 @@
+
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/sunsworn1020903/sunsworn1020903/main/Pop_it_Safe_place"), true))() -- Safe 
+local Pop_it_hub = loadstring(game:HttpGet("https://pastebin.com/raw/3gQQtaKX"))()
+local DupeTab = Pop_it_hub:CreateTab("Dupe")
+local Starter = DupeTab:CreateSection("Starter")
+
+local Sell = "" 
+local BuyItemCash = ""
+local Equip = ""
+local Drop = ""
+local Tpwalkval = 1
+local Players = Game.Players
+local plr = Players.localPlayer
+
+ function PlaceId()
+if game.PlaceId == 7346416636 then
+Equip = game:GetService("ReplicatedStorage").RemoteEvents.Equip
+Drop = game:GetService("ReplicatedStorage").RemoteEvents.Drop
+Sell = game:GetService("ReplicatedStorage").RemoteEvents.Sell
+BuyItemCash = game:GetService("ReplicatedStorage").RemoteEvents.BuyItemCash
+end
+end
+ PlaceId()
+
+Starter:CreateToggle("Virus( 40 )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "Virus"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "Virus"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+
+Starter:CreateToggle("Amogus( 500 )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "Amogus"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "Amogus"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+Starter:CreateToggle("Cat( 2k )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "Cat"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "Cat"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+Starter:CreateToggle("Poppy( 10k )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "Poppy"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "Poppy"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+Starter:CreateToggle("Tank( 100k )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "Tank"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "Tank"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+
+Starter:CreateToggle("Siren Head( 1M )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "Siren Head"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "Siren Head"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+
+local Last = DupeTab:CreateSection("Last")
+
+Last:CreateToggle("eTruck( 10M )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "eTruck"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "eTruck"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+Last:CreateToggle("Rainbow Banana( 100M )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "Rainbow Banana"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "Rainbow Banana"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+Last:CreateToggle("Amogus Rainbow( 400M )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "Amogus Rainbow"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "Amogus Rainbow"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+Last:CreateToggle("Pop It Rainbow( 1.2B )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "Pop It Rainbow!"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "Pop It Rainbow!"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+Last:CreateToggle("The banana( 2T )", function(loops)
+  if loops then
+                _G.on = true
+                
+                while _G.on == true do
+                    wait()
+                
+                wait(0.2)
+                local args = {
+                        [1] = "The banana"
+                    }
+                    Sell:FireServer(unpack(args))
+                        local args = {
+                        [1] = "The banana"
+                    }
+                    BuyItemCash:FireServer(unpack(args))
+                
+                wait(0.2)
+                
+                    end
+                    else
+                _G.on = false
+                        
+       end
+end) 
+
+local BuyTab = Pop_it_hub:CreateTab("Buy / Drop")
+local BuySection = BuyTab:CreateSection("Buy")
+
+BuySection:CreateButton("The banana( 1T )",function()
+                        local args = {
+                        [1] = "The banana"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+BuySection:CreateButton("Pop It Rainbow( 600M )",function()
+                        local args = {
+                        [1] = "Pop It Rainbow!"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+BuySection:CreateButton("Amogus Rainbow( 200M )",function()
+                        local args = {
+                        [1] = "Amogus Rainbow"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+
+BuySection:CreateButton("Lolly Rainbow( 300M )",function()
+                        local args = {
+                        [1] = "Lolly Rainbow"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+
+BuySection:CreateButton("Crystal Rainbow( 100M )",function()
+                        local args = {
+                        [1] = "Crystal Rainbow"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+end)
+            
+BuySection:CreateButton("Slippy Rainbow( 75M )",function()
+                        local args = {
+                        [1] = "Slippy Rainbow"
+                    }                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+BuySection:CreateButton("Rainbow Banana( 50M )",function()
+                        local args = {
+                        [1] = "Rainbow Banana"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+BuySection:CreateButton("Gummy Rainbow( 20M )",function()
+                        local args = {
+                        [1] = "Gummy Rainbow"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+BuySection:CreateButton("Gem Rainbow( 17M )",function()
+                        local args = {
+                        [1] = "Gem Rainbow"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+
+BuySection:CreateButton("Ragdoll Crown( 10M )",function()
+                        local args = {
+                        [1] = "Ragdoll Crown"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+BuySection:CreateButton("Trading Ben( 1M )",function()
+                        local args = {
+                        [1] = "Trading Ben"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+
+BuySection:CreateButton("Mommeh Long Legs( 500k )",function()
+                        local args = {
+                        [1] = "Mommeh Long Legs"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+BuySection:CreateButton("Rainbow Ladder( 250k )",function()
+                        local args = {
+                        [1] = "Rainbow Ladder"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+                end)
+
+BuySection:CreateButton("Flower Seed( 2.5k )",function()
+                        local args = {
+                        [1] = "Flower Seed"
+                    }
+                
+                    BuyItemCash:FireServer(unpack(args))
+end)
+            
+local DropSection = BuyTab:CreateSection("Drop")
+
+DropSection:CreateToggle("The banana", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("The banana")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Pop It Rainbow!", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Pop It Rainbow!")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Amogus Rainbow", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Amogus Rainbow")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Lolly Rainbow", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Lolly Rainbow")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Crystal Rainbow", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Crystal Rainbow")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Slippy Rainbow", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Slippy Rainbow")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Rainbow Banana", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Rainbow Banana")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Gummy Rainbow", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Gummy Rainbow")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Gem Rainbow", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Gem Rainbow")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Ragdoll Crown", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Ragdoll Crown")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Trading Ben", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Trading Ben")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Mommeh Long Legs", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Mommeh Long Legs")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Rainbow Ladder", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Rainbow Ladder")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+DropSection:CreateToggle("Flower Seed", function(loops)
+    if loops then
+    _G.on = true
+    local A_1 = ("Flower Seed")
+    while _G.on == true do
+    
+	Equip:FireServer(A_1)
+	wait(0.5)
+	Drop:FireServer(A_1)
+	wait(0.5)
+	end
+else
+_G.on = false
+	end
+end)
+
+ local ScriptTab = Pop_it_hub:CreateTab("Script")
+ local ScriptSection = ScriptTab:CreateSection("Script")
+ 
+ ScriptSection:CreateToggle("Anti Reaper", function(loops)
+     if loops then
+    local A_2 = "Watermelon"
+   _G.on = true
+   while _G.on == true do
+   Equip:FireServer(A_2)
+   wait(.2)
+   end
+  else
+  _G.on = false
+  end
+ end)
+ 
+ ScriptSection:CreateToggle("Buy, Flower Seed( 2.5k )", function(loops)
+     if loops then
+    local A_2 = "Flower Seed"
+    _G.on = true 
+    while _G.on == true do
+   BuyItemCash:FireServer(A_2)
+   wait(.2)
+   end
+    else
+    _G.on = false
+  end
+ end)
+ 
+ ScriptSection:CreateToggle("Buy, Watermelon( 5k )", function(loops)
+     if loops then
+    local A_2 = "Watermelon"
+    _G.on = true 
+    while _G.on == true do
+   BuyItemCash:FireServer(A_2)
+   wait(.2)
+   end
+    else
+    _G.on = false
+  end
+ end)
+ 
+ ScriptSection:CreateButton("XRay", function()
+     game.Players.localPlayer.XRay.Value = true
+ end)
+ 
+ ScriptSection:CreateButton("Inf jump", function()
+     
+game:GetService("UserInputService").JumpRequest:connect(function()
+	
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end)
+ end)
+ 
+ScriptSection:CreateSlider("TP walk", 1, 20, 1, false, function(value)
+    Tpwalkval = value
+end)
+
+ScriptSection:CreateButton("TP walk", function(Button)
+    if Button.Text == "TP walk" then
+    Button.Text = "TP walking"
+       local hb = game:GetService("RunService").Heartbeat
+	tpwalking = true
+	local chr = plr.Character
+	local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+	while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+		if hum.MoveDirection.Magnitude > 0 then
+				chr:TranslateBy(hum.MoveDirection * tonumber(Tpwalkval))
+			else
+				chr:TranslateBy(hum.MoveDirection)
+      end
+   end
+    else
+    Button.Text = "TP walk"
+    tpwalking = false
+    end
+end)
+ 
+ 
+ 
+ 
+ 
+ 
