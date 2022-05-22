@@ -28,7 +28,7 @@ Frame.Name = "Frame"
 Frame.Parent = ScreenGui
 Frame.Active = true
 Frame.Draggable = true
-Frame.Position = UDim2.fromOffset(20,505)
+Frame.Position = UDim2.fromScale(0, .9)
 Frame.Size = UDim2.fromOffset(60, 30)
 
 local Button = Instance.new("TextButton")
@@ -64,4 +64,3 @@ plr.Character.HumanoidRootPart.Anchored = false
  end
   end
    end)
-
