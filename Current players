@@ -1,0 +1,88 @@
+
+  
+ if Game.CoreGui:FindFirstChild("Current Players") then
+ Game.CoreGui:FindFirstChild("Current Players"):remove()
+ end
+
+ local Players = Game.Players
+ local plr = Players.LocalPlayer
+ local bool = true
+ 
+ local ScreenGui = Instance.new("ScreenGui")
+ ScreenGui.Name = "Current Players"
+ ScreenGui.Parent = Game.CoreGui
+ 
+ local Frame = Instance.new("Frame")
+ Frame.Name = "Frame"
+ Frame.Parent = ScreenGui
+ Frame.Active = true
+ Frame.Draggable = true
+ Frame.Size = UDim2.fromScale(.2,.5)
+ Frame.Style = "ChatBlue"
+  
+ local SecondFrame = Instance.new("ScrollingFrame")
+ SecondFrame.Name = "SecondFrame"
+ SecondFrame.Parent = Frame
+ SecondFrame.Size = UDim2.fromScale(1,1)
+ SecondFrame.ScrollBarThickness = 6
+ SecondFrame.ScrollingDirection = "Y"
+ 
+ local SectionContentLayout = Instance.new("UIListLayout")
+ SectionContentLayout.Name = "SectionContentLayout"
+ SectionContentLayout.Parent = SecondFrame
+ SectionContentLayout.SortOrder = Enum.SortOrder.LayoutOrder
+ SectionContentLayout.Padding = UDim.new(0,5)
+ 
+ SectionContentLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+            SecondFrame.CanvasSize = UDim2.new(0, 0, 0, SectionContentLayout.AbsoluteContentSize.Y+5)
+        end)
+
+ function NewButton(v)
+     v = v or plr
+     
+     local TextButton = Instance.new("TextButton")
+     TextButton.Name = v.Name
+     TextButton.Parent = SecondFrame
+   --TextButton.Size = UDim2.fromScale(.7,.1)
+     TextButton.Size = UDim2.new(0,70, 0, 30)
+     TextButton.Text = v.DisplayName
+     TextButton.BackgroundColor3 = Color3.fromRGB(0,0,255)
+     TextButton.TextColor3 = Color3.fromRGB(255,255,255)
+     TextButton.TextScaled = true
+     TextButton.TextWrapped = true
+     TextButton.MouseButton1Click:Connect(function()
+         if bool == true then
+       _G.loop = true
+        bool = false
+         repeat
+plr.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame*CFrame.new(0,0,1.8)
+game:GetService("RunService").Heartbeat:Wait()
+  until _G.loop == false
+         wait()
+         
+        else
+        _G.loop = false
+        bool = true
+        end
+         end)
+     end
+ 
+ for i, v in pairs(Players:GetPlayers()) do
+ NewButton(v)
+     
+ end
+ 
+ Players.PlayerRemoving:Connect(function(leaving)
+     if SecondFrame:FindFirstChild(leaving.Name) then
+     SecondFrame:FindFirstChild(leaving.Name):remove()
+     end
+ end)
+ 
+ Players.PlayerAdded:Connect(function(Child)
+     NewButton(Child)
+ end)
+ 
+ 
+ 
+ 
+ 
