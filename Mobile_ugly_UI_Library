@@ -727,20 +727,19 @@ function Library:CreateTab(name)
             CircleSelector.InputBegan:Connect(function(input)
                 if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                     SliderDragging = true
-                   Sliding(input)
-                   input.Changed:Connect(function()
-                    if (input.UserInputState == Enum.UserInputState.End) then
-                   SliderDragging=false
-                  end
-                  end)
+                  
                end
             end)
             
-          --[[ CircleSelector.InputBegan:Connect(function(input)
+            CircleSelector.InputEnded:Connect(function()
+                SliderDragging=false
+            end)
+            
+            CircleSelector.InputBegan:Connect(function(input)
                 if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                     Sliding(input)
                 end
-            end) ]]
+            end) 
 
             local function SetSliderValue(value)
                 Value.Text = value
