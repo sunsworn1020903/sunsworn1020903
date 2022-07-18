@@ -1,0 +1,234 @@
+if not _G.IgnoreList then
+    _G.IgnoreList = {}
+end
+
+local function Create(Object, Properties)
+	local New = Instance.new(Object)
+	for i,v in pairs(Properties) do
+		New[i] = v
+	end
+	return New
+end
+
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+
+local Gui = Create("ScreenGui",{Name="Peacemaker",ResetOnSpawn=false,Parent=Player.PlayerGui})
+local Frame = Create("Frame",{Parent=Gui,Position = UDim2.new(0.4,0,0.4,0),Size=UDim2.new(0.2,0,0.2,0),BackgroundTransparency=0.6,BorderSizePixel=0,BackgroundColor3=Color3.new(1,1,1),ZIndex=10})
+local Title = Create("TextLabel",{Parent=Frame,Position=UDim2.new(0.3,0,-0.15,-1),Size=UDim2.new(0.4,0,0.15,0),Font=Enum.Font.Oswald,Text="PEACEMAKER",BorderSizePixel=3,TextScaled=true,TextWrapped=true,BackgroundColor3=Color3.new(1,1,1),ZIndex=11})
+local OutlineU = Create("Frame",{Parent=Frame,Position = UDim2.new(0,0,0,0),Size=UDim2.new(1,0,0.01,0),BackgroundTransparency=0,BorderSizePixel=0,BackgroundColor3=Color3.new(0,0,0),ZIndex=11})
+local OutlineD = Create("Frame",{Parent=Frame,Position = UDim2.new(0,0,1,0),Size=UDim2.new(1,0,0.01,0),BackgroundTransparency=0,BorderSizePixel=0,BackgroundColor3=Color3.new(0,0,0),ZIndex=11})
+local OutlineL = Create("Frame",{Parent=Frame,Position = UDim2.new(0,0,0,0),Size=UDim2.new(0.005,0,1,0),BackgroundTransparency=0,BorderSizePixel=0,BackgroundColor3=Color3.new(0,0,0),ZIndex=11})
+local OutlineR = Create("Frame",{Parent=Frame,Position = UDim2.new(1,0,0,0),Size=UDim2.new(0.005,0,1,0),BackgroundTransparency=0,BorderSizePixel=0,BackgroundColor3=Color3.new(0,0,0),ZIndex=11})
+local Note = Create("TextLabel",{Parent=Frame,Position=UDim2.new(0,0,0.9,0),Size=UDim2.new(1,0,0.1,0),Font=Enum.Font.Oswald,Text="Made by Crokuran",BorderSizePixel=3,BackgroundTransparency=1,TextScaled=true,TextWrapped=true,TextColor3=Color3.new(1,1,1),TextStrokeTransparency=0,ZIndex=11})
+
+local ToolsText = Create("TextLabel",{Parent=Frame,Position=UDim2.new(0.05,0,0.05,0),Size=UDim2.new(0.3,0,0.2,0),BackgroundTransparency=1,Font=Enum.Font.Oswald,Text="Tools",TextColor3=Color3.new(1,1,1),TextStrokeTransparency=0,TextScaled=true,TextWrapped=true,ZIndex=11})
+local WeaponsText = Create("TextLabel",{Parent=Frame,Position=UDim2.new(0.6,0,0.05,0),Size=UDim2.new(0.3,0,0.2,0),BackgroundTransparency=1,Font=Enum.Font.Oswald,Text="Weapons",TextColor3=Color3.new(1,1,1),TextStrokeTransparency=0,TextScaled=true,TextWrapped=true,ZIndex=11})
+local InfoText = Create("TextLabel",{Parent=Gui,Position=UDim2.new(0,0,0,0),Size=UDim2.new(0.1,0,0.1,0),BackgroundTransparency=0,BackgroundColor3=Color3.new(0,0,0),Font=Enum.Font.Oswald,Text="Weapons",TextColor3=Color3.new(1,1,1),TextStrokeTransparency=0,TextScaled=true,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Top,Visible=false,ZIndex=15})
+
+local GiveGS = Create("TextButton",{Name="GiveGS",Parent=Frame,Position=UDim2.new(0.05,0,0.3,0),Size=UDim2.new(0.3,0,0.15,0),Font=Enum.Font.Oswald,Text="Emerald Greatsword",TextScaled=true,TextWrapped=true,BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=2,ZIndex=11})
+local GiveBD = Create("TextButton",{Name="GiveBD",Parent=Frame,Position=UDim2.new(0.05,0,0.5,0),Size=UDim2.new(0.3,0,0.15,0),Font=Enum.Font.Oswald,Text="Blood Dagger",TextScaled=true,TextWrapped=true,BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=2,ZIndex=11})
+local SpamTools = Create("TextButton",{Name="SpamTools",Parent=Frame,Position=UDim2.new(0.05,0,0.7,0),Size=UDim2.new(0.3,0,0.15,0),Font=Enum.Font.Oswald,Text="Spam Tools",TextScaled=true,TextWrapped=true,BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=2,ZIndex=11})
+local KillNear = Create("TextButton",{Name="KillNear",Parent=Frame,Position=UDim2.new(0.6,0,0.3,0),Size=UDim2.new(0.3,0,0.15,0),Font=Enum.Font.Oswald,Text="Kill Nearest",TextScaled=true,TextWrapped=true,BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=2,ZIndex=11})
+local SpamGrenades = Create("TextButton",{Name="SpamGrenades",Parent=Frame,Position=UDim2.new(0.6,0,0.5,0),Size=UDim2.new(0.3,0,0.15,0),Font=Enum.Font.Oswald,Text="Spam Grenades",TextScaled=true,TextWrapped=true,BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=2,ZIndex=11})
+local FastKill = Create("TextButton",{Name="FastKill",Parent=Frame,Position=UDim2.new(0.6,0,0.7,0),Size=UDim2.new(0.3,0,0.15,0),Font=Enum.Font.Oswald,Text="Fast Kill All",TextScaled=true,TextWrapped=true,BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=2,ZIndex=11})
+
+local ButtonInfo = {
+    GiveGS = "Gives gamepass Emerald Greatsword weapon for free",
+    GiveBD = "Gives gamepass Blood Dagger weapon for free",
+    SpamTools = "Rapidly gives you multiple tools, use when combined with Spam Grenades",
+    KillNear = "WHILE HOLDING OUT A WEAPON, damages the closest player from any distance",
+    SpamGrenades = "Automatically throws grenades incredibly fast, use with Spam Tools to refresh grenades",
+    FastKill = "Uses all weapons to kill everybody in the server. Give yourself more tools for faster killing"
+}
+
+local function GetChar()
+    local Char = Player.Character or Player.CharacterAdded:Wait()
+    return Char
+end
+
+local DragSpeed = .3
+local FrameStart
+local MouseStart
+local HeldDown = false
+Title.InputBegan:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+		HeldDown = true
+		FrameStart = Frame.Position
+		MouseStart = Input.Position
+		repeat
+			Frame.Position = Frame.Position:Lerp(UDim2.new(FrameStart.X.Scale,FrameStart.X.Offset + (Mouse.X - MouseStart.X),FrameStart.Y.Scale,FrameStart.Y.Offset + (Mouse.Y - MouseStart.Y)), DragSpeed)
+			game:GetService("RunService").RenderStepped:Wait()
+		until not HeldDown
+		local EndPos = {X = Mouse.X, Y = Mouse.Y}
+		for i=1,50 do
+			if not HeldDown then
+				Frame.Position = Frame.Position:Lerp(UDim2.new(FrameStart.X.Scale,FrameStart.X.Offset + (EndPos.X - MouseStart.X),FrameStart.Y.Scale,FrameStart.Y.Offset + (EndPos.Y - MouseStart.Y)), DragSpeed)
+			else
+				break
+			end
+			game:GetService("RunService").RenderStepped:Wait()
+		end
+	end
+end)
+
+Title.InputEnded:Connect(function(Input)
+	if Input.UserInputType == Enum.UserInputType.MouseButton1 then
+		HeldDown = false
+	end
+end)
+
+GiveGS.MouseButton1Click:Connect(function()
+    if Player.Character:FindFirstChild("Loaded") then Player.Character.Loaded:Destroy() end
+    Player.PlayerGui["Menu Screen"].RemoteEvent:FireServer("Emerald Greatsword")
+end)
+
+GiveBD.MouseButton1Click:Connect(function()
+    if Player.Character:FindFirstChild("Loaded") then Player.Character.Loaded:Destroy() end
+    Player.PlayerGui["Menu Screen"].RemoteEvent:FireServer("Blood Dagger")
+end)
+
+local Spamming = false
+SpamTools.MouseButton1Click:Connect(function()
+    if Spamming then
+        Spamming = false
+        SpamTools.BackgroundColor3 = Color3.new(1,1,1)
+    else
+        SpamTools.BackgroundColor3 = Color3.new(0,1,0)
+        Spamming = true
+        repeat
+            if GetChar():FindFirstChild("Loaded") then
+                GetChar().Loaded:Destroy()
+            end
+            Player.PlayerGui["Menu Screen"].RemoteEvent:FireServer("Pencil")
+            game:GetService("RunService").Heartbeat:Wait()
+        until not Spamming
+    end
+end)
+
+local KillingNear = false
+KillNear.MouseButton1Click:Connect(function()
+    if KillingNear then
+        KillingNear = false
+        KillNear.BackgroundColor3 = Color3.new(1,1,1)
+    else
+        KillNear.BackgroundColor3 = Color3.new(0,1,0)
+        KillingNear = true
+        repeat
+            local targ
+            local range = 10000
+            for i,v in pairs(workspace:GetChildren()) do
+                if v~=GetChar() and not table.find(_G.IgnoreList,v.Name) then
+                    local vhum = v:FindFirstChild("Humanoid")
+                    local vroot = v:FindFirstChild("HumanoidRootPart")
+                    if vhum and vroot then
+                        local dist = (vroot.Position - Player.Character.HumanoidRootPart.Position).magnitude
+                        if vhum.Health>0 and not v:FindFirstChild("ForceField") and dist <= range then
+                            targ = vhum
+                            range = dist
+                        end
+                    end
+                end
+            end
+            
+            if targ then
+                local tool = GetChar():FindFirstChildOfClass("Tool")
+                tool.DamageRemote:FireServer(targ)
+            end
+            wait()
+        until not KillingNear
+    end
+end)
+
+local Grenading = false
+SpamGrenades.MouseButton1Click:Connect(function()
+    if Grenading then
+        Grenading = false
+        SpamGrenades.BackgroundColor3 = Color3.new(1,1,1)
+    else
+        SpamGrenades.BackgroundColor3 = Color3.new(0,1,0)
+        Grenading = true
+        repeat
+            for i,v in pairs(Player.Backpack:GetChildren()) do
+                if v.Name == "Grenade" then
+                    GetChar().Humanoid:EquipTool(v)
+                    v:Activate()
+                    for i=1,5 do
+                        game:GetService("RunService").Heartbeat:Wait()
+                    end
+                    if not Grenading then
+                        break
+                    end
+                end
+            end
+            game:GetService("RunService").Heartbeat:Wait()
+        until not Grenading
+    end
+end)
+
+local FastKilling = false
+FastKill.MouseButton1Click:Connect(function()
+    if FastKilling then
+        FastKilling = false
+        FastKill.BackgroundColor3 = Color3.new(1,1,1)
+    else
+        FastKill.BackgroundColor3 = Color3.new(0,1,0)
+        FastKilling = true
+        repeat
+            for i,v in pairs(Player.Backpack:GetChildren()) do
+                if v:FindFirstChild("DamageRemote") then
+                    GetChar().Humanoid:EquipTool(v)
+                    
+                    local targ
+                    local range = 10000
+                    for i,v in pairs(workspace:GetChildren()) do
+                        if v~=GetChar() and not table.find(_G.IgnoreList,v.Name) then
+                            local vhum = v:FindFirstChild("Humanoid")
+                            local vroot = v:FindFirstChild("HumanoidRootPart")
+                            if vhum and vroot then
+                                local dist = (vroot.Position - Player.Character.HumanoidRootPart.Position).magnitude
+                                if vhum.Health>0 and not v:FindFirstChild("ForceField") and dist <= range then
+                                    targ = vhum
+                                    range = dist
+                                end
+                            end
+                        end
+                    end
+                    
+                    for i=1,2 do
+                        game:GetService("RunService").Heartbeat:Wait()
+                    end
+                    
+                    if targ then
+                        v.DamageRemote:FireServer(targ)
+                    end
+                    
+                    if not FastKilling then
+                        break
+                    end
+                end
+            end
+            wait()
+        until not FastKilling
+    end
+end)
+
+for name,info in pairs(ButtonInfo) do
+    local button = Frame[name]
+    button.MouseEnter:Connect(function()
+    	local left = false
+    	local con = button.MouseLeave:Connect(function()
+    		left = true
+    	end)
+    	
+    	InfoText.Visible = true
+    	InfoText.Text = info
+    	
+    	repeat
+    		game:GetService("RunService").RenderStepped:Wait()
+    		InfoText.Position = UDim2.new(0,Mouse.X+5,0,Mouse.Y+5)
+    	until left
+    	InfoText.Visible = false
+    	con:Disconnect()
+    end)
+end
