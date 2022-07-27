@@ -2,7 +2,8 @@ local Players = game.Players
 local plr = Players.LocalPlayer
 local loop = true
 local retry = true
-_G.name = "swuv"
+_G.name = "sword"
+_G.enemOnly = true
 local reach = 10
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/turtle"))()
@@ -30,10 +31,12 @@ end
 
 function KillAura()
     loop = true
+    if _G.enemOnly == true then
     repeat
     for i,v in pairs(game.Players:GetPlayers()) do
 	pcall(function()
 	if v ~= game.Players.LocalPlayer and v.TeamColor.Name ~= plr.TeamColor.Name and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChildOfClass"ForceField" == nil then
+    
 	local Distance = (v.Character:FindFirstChildOfClass("Part").Position - game.Players.LocalPlayer.Character:FindFirstChildOfClass("Part").Position).magnitude
 	if Distance <= reach then
 	for i = 1,25 do
@@ -58,6 +61,39 @@ function KillAura()
 	end
     game:GetService("RunService").Heartbeat:Wait()
     until loop == false
+
+    else
+
+    repeat
+    for i,v in pairs(game.Players:GetPlayers()) do
+	pcall(function()
+	if v ~= game.Players.LocalPlayer and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChildOfClass"ForceField" == nil then
+    
+	local Distance = (v.Character:FindFirstChildOfClass("Part").Position - game.Players.LocalPlayer.Character:FindFirstChildOfClass("Part").Position).magnitude
+	if Distance <= reach then
+	for i = 1,25 do
+    plr.Character.Humanoid.RootPart.CFrame = v.Character.Humanoid.RootPart.CFrame * CFrame.new(-1.6,0,1.8)
+    local h = getTool()
+    h.Parent = plr.Character
+    h:Activate()
+    if plr.Character:FindFirstChildOfClass"Tool".Name ~= getTool().Name then
+        plr.Character:FindFirstChildOfClass"Humanoid": UnequipTools()
+        end
+    if v.Character.Humanoid.Health <= 0 then
+    loop = false
+    if retry == true then
+    wait(1)
+    KillAura()
+    end
+    end
+	end
+	end 
+    end
+	end)
+	end
+    game:GetService("RunService").Heartbeat:Wait()
+    until loop == false
+    end
     end
 
   local function notify(Title, Text, Duration)
@@ -99,4 +135,12 @@ Window:Box("Reach - 10", function(text, focuslost)
     notify("maximum", "the maximum reach is 40, current reach: "..reach)
     end
    end
+end)
+
+local dropdown = Window:Dropdown("Mode", {"enemies only", "others"}, function(o)
+    if o == "enemies only" then
+    _G.enemOnly = true
+    elseif o == "others" then
+    _G.enemOnly = false
+    end
 end)
