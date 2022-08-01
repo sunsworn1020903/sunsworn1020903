@@ -1,0 +1,100 @@
+local T = {}
+
+function T:Start()
+local s = setmetatable({}, {__index = function(Self, Index)
+local NewService = game.GetService(game, Index)
+if NewService then
+Self[Index] = NewService
+end
+return NewService
+end})
+
+function dragify(Frame)
+dragToggle = nil
+dragSpeed = .25 -- You can edit this.
+dragInput = nil
+dragStart = nil
+dragPos = nil
+
+function updateInput(input)
+Delta = input.Position - dragStart
+Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+game:GetService("TweenService"):Create(Frame, TweenInfo.new(.25), {Position = Position}):Play()
+end
+
+Frame.InputBegan:Connect(function(input)
+if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+dragToggle = true
+dragStart = input.Position
+startPos = Frame.Position
+input.Changed:Connect(function()
+if (input.UserInputState == Enum.UserInputState.End) then
+dragToggle = false
+end
+end)
+end
+end)
+
+Frame.InputChanged:Connect(function(input)
+if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+dragInput = input
+end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+if (input == dragInput and dragToggle) then
+updateInput(input)
+end
+end)
+end
+
+local Players = s.Players
+local plr = Players.LocalPlayer
+
+if s.CoreGui: FindFirstChild"ultra()power()tycoon()" then
+   s.CoreGui:FindFirstChild"ultra()power()tycoon()": Destroy()
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = s.CoreGui
+ScreenGui.Name = "ultra()power()tycoon()"
+ScreenGui.ZIndexBehavior = "Sibling"
+
+local Frame = Instance.new("Frame")
+Frame.Parent = ScreenGui
+Frame.Name = "main"
+Frame.Size = UDim2.fromOffset(300,400)
+Frame.BackgroundColor3 = Color3.fromRGB(5,5,5)
+Frame.BorderColor3 = Color3.fromRGB(90,90,90)
+Frame.BorderSizePixel = 3
+
+local Frame2 = Instance.new("Frame")
+Frame2.Parent = Frame
+Frame2.Size = UDim2.fromOffset(300,350)
+Frame2.BackgroundColor3 = Frame.BackgroundColor3
+Frame2.BorderColor3 = Frame.BorderColor3
+Frame2.BorderSizePixel = Frame.BorderSizePixel
+
+local UIGridLayout = Instance.new("UIGridLayout")
+UIGridLayout.Parent = Frame2
+UIGridLayout.CellSize = UDim2.fromOffset(80,50)
+UIGridLayout.CellPadding = UDim2.fromOffset(10,10)
+
+function T:Button(Text, callBack)
+    Text = Text or "Button"
+    callBack = callBack or function() end
+local TextButton = Instance.new("TextButton")
+TextButton.Parent = Frame2
+TextButton.BackgroundColor3 = Color3.fromRGB(5,5,5)
+TextButton.BorderColor3 = Color3.fromRGB(90,90,90)
+TextButton.BorderSizePixel = 2
+TextButton.TextColor3 = Color3.fromRGB(255,255,255)
+TextButton.TextScaled = true
+TextButton.Text = tostring(Text)
+TextButton.MouseButton1Click:Connect(function()
+    callBack(TextButton)
+   end)
+end
+dragify(Frame)
+end
+return T
