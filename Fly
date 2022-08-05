@@ -188,6 +188,7 @@ local function TOSK_fake_script() -- FlyScript.FlyManager
 	
 	spawn(function()
 		while true do
+        if Player.Character.Humanoid.Health <= 0 then break end
 			wait()
 		if IsFlying then
 			
@@ -209,17 +210,18 @@ local function TOSK_fake_script() -- FlyScript.FlyManager
 		
 	end)
 	
-	Player.Character.Humanoid.Changed:Connect(function()
+	_G.On = Player.Character.Humanoid.Changed:Connect(function()
 		if Player.Character.Humanoid.Health == 0 then
 		if IsFlying then
 		IsFlying = false
 		flyg:Destroy()
 		flyv:Destroy()
 		end
+        _G.On: Disconnect ()
 		end
 	end)
-	Player.Character.Humanoid.Changed:Connect(function(Prop)
-		
+	_G.On2 = Player.Character.Humanoid.Changed:Connect(function(Prop)
+		if Player.Character.Humanoid.Health <= 0 then _G.On2:Disconnect() end
 			if Player.Character.Humanoid.MoveDirection == Vector3.new(0,0,0) then
 				IsRunning = false
 			else
