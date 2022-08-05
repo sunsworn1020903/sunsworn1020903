@@ -1,0 +1,230 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local delete_it = Game.Players.LocalPlayer.PlayerGui:FindFirstChild'huhuhuajajajajajaowowowo'
+local delete_it_2 = Game.Players.LocalPlayer.PlayerGui:FindFirstChild'FlyScript'
+
+if delete_it and delete_it_2 then
+delete_it:remove()
+delete_it_2:remove()
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+local FlyScript = Instance.new("ScreenGui")
+local Frame_4 = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local IsOn = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local TextButton2 = Instance.new("TextBox")
+local UICorner_7 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Name = 'huhuhuajajajajajaowowowo'
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TextLabel.Parent = ScreenGui
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.Position = UDim2.new(0.896401286, 0, 0.86658293, 0)
+TextLabel.Size = UDim2.new(0, 8, 0, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "this for Mobile "
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 32.000
+
+FlyScript.Name = "FlyScript"
+FlyScript.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Frame_4.Parent = FlyScript
+Frame_4.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Frame_4.Position = UDim2.new(1, 0, 0.480690241, 0)
+Frame_4.Selectable = true
+Frame_4.Size = UDim2.new(0.296442688, 0, 0.315457404, 0)
+
+UICorner_4.CornerRadius = UDim.new(0.0199999996, 0)
+UICorner_4.Parent = Frame_4
+
+TextButton_2.Parent = Frame_4
+TextButton_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(-0.776396632, 0, 1.388762, 0)
+TextButton_2.Size = UDim2.new(0.393333346, 0, 0.25, 0)
+TextButton_2.Font = Enum.Font.SourceSansBold
+TextButton_2.Text = "Fly: "
+TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14.000
+TextButton_2.TextWrapped = true
+TextButton_2.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_5.CornerRadius = UDim.new(0.0199999996, 0)
+UICorner_5.Parent = TextButton_2
+
+IsOn.Name = "IsOn"
+IsOn.Parent = Frame_4
+IsOn.BackgroundColor3 = Color3.fromRGB(120, 120, 120)
+IsOn.BackgroundTransparency = 1.000
+IsOn.BorderSizePixel = 0
+IsOn.Position = UDim2.new(-0.563063383, 0, 1.388762, 0)
+IsOn.Size = UDim2.new(0.180000007, 0, 0.25, 0)
+IsOn.Font = Enum.Font.SourceSansItalic
+IsOn.Text = "Off"
+IsOn.TextColor3 = Color3.fromRGB(255, 0, 0)
+IsOn.TextScaled = true
+IsOn.TextSize = 14.000
+IsOn.TextWrapped = true
+
+UICorner_6.CornerRadius = UDim.new(0.0199999996, 0)
+UICorner_6.Parent = IsOn
+
+TextButton2.Name = "TextButton2"
+TextButton2.Parent = Frame_4
+TextButton2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton2.Position = UDim2.new(-0.380482465, 0, 1.39275873, 0)
+TextButton2.Size = UDim2.new(0.379999995, 0, 0.25, 0)
+TextButton2.Font = Enum.Font.SourceSansBold
+TextButton2.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton2.PlaceholderText = "Speed"
+TextButton2.Text = "100"
+TextButton2.TextScaled = true
+TextButton2.TextWrapped = true
+
+UICorner_7.CornerRadius = UDim.new(0.0199999996, 0)
+UICorner_7.Parent = TextButton2
+
+-- Scripts:
+
+local function TOSK_fake_script() -- FlyScript.FlyManager 
+	local script = Instance.new('LocalScript', FlyScript)
+
+	local Key = "e" -- Lowercase Letter
+
+	local Player = game.Players.LocalPlayer
+	repeat wait() until Player.Character and Player.Character:FindFirstChild('Humanoid')
+	local Mouse = Player:GetMouse()
+	local IsFlying = false
+	local flyv
+	local flyg
+	local IsRunning = false
+	local f = 0
+	local Speed = 100
+	local LastSpeed = Speed
+	local maxspeed = 999
+	local wdown = false
+	local sdown = false
+	Mouse.KeyDown:Connect(function(key)
+		if key:lower() == Key then
+			if IsFlying then
+				IsFlying = false
+			    flyv:Destroy()
+				flyg:Destroy()
+				script.Parent.Frame.IsOn.Text = "Off"
+				script.Parent.Frame.IsOn.TextColor3 = Color3.fromRGB(255,0,0)
+				Player.Character:WaitForChild('Humanoid').PlatformStand = false
+			else
+				IsFlying = true
+				 flyv = Instance.new("BodyVelocity")
+				
+				flyv.Parent = Player.Character:FindFirstChild('Torso') or Player.Character:FindFirstChild('UpperTorso')
+				flyv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+				
+				 flyg = Instance.new("BodyGyro")
+				flyg.Parent = Player.Character:FindFirstChild('Torso') or Player.Character:FindFirstChild('UpperTorso')
+				flyg.MaxTorque = Vector3.new(9e9,9e9,9e9)
+				flyg.P = 1000
+				flyg.D = 50
+				script.Parent.Frame.IsOn.Text = "On"
+				script.Parent.Frame.IsOn.TextColor3 = Color3.fromRGB(0,255,0)
+				Player.Character:WaitForChild('Humanoid').PlatformStand = true
+			end
+		end
+	end)
+	script.Parent.Frame.TextButton.MouseButton1Click:Connect(function()
+		
+			if IsFlying then
+				IsFlying = false
+				flyv:Destroy()
+				flyg:Destroy()
+			    script.Parent.Frame.IsOn.Text = "Off"
+			    script.Parent.Frame.IsOn.TextColor3 = Color3.fromRGB(255,0,0)
+				Player.Character:WaitForChild('Humanoid').PlatformStand = false
+			else
+				IsFlying = true
+				flyv = Instance.new("BodyVelocity")
+	
+			flyv.Parent = Player.Character:FindFirstChild('Torso') or Player.Character:FindFirstChild('UpperTorso')
+				flyv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+	
+				flyg = Instance.new("BodyGyro")
+			flyg.Parent = Player.Character:FindFirstChild('Torso') or Player.Character:FindFirstChild('UpperTorso')
+				flyg.MaxTorque = Vector3.new(9e9,9e9,9e9)
+				flyg.P = 1000
+				flyg.D = 50
+			script.Parent.Frame.IsOn.Text = "On"
+			script.Parent.Frame.IsOn.TextColor3 = Color3.fromRGB(0,255,0)
+			Player.Character:WaitForChild('Humanoid').PlatformStand = true
+			end
+	end)
+	script.Parent.Frame.TextButton2.FocusLost:Connect(function(Entered)
+	local TextBox = script.Parent.Frame.TextButton2
+ if not tonumber(TextBox.Text) then
+ TextBox.Text = tostring("100" and tonumber(string.format("%.2f", 100)))
+ Speed = 100
+ elseif TextBox.Text == "" or tonumber(TextBox.Text) <= 1 then
+ TextBox.Text = 1
+ Speed = 1
+ elseif TextBox.Text == "" or tonumber(TextBox.Text) >= maxspeed then
+ TextBox.Text = maxspeed
+ Speed = maxspeed
+ end
+	end)
+	
+	spawn(function()
+		while true do
+			wait()
+		if IsFlying then
+			
+				flyg.CFrame = workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((f+0)*50*Speed/maxspeed),0,0) 
+					flyv.Velocity = workspace.CurrentCamera.CoordinateFrame.LookVector * Speed
+					wait(0.1)
+			
+			end
+			if IsRunning then
+			Speed = tonumber(TextButton2.Text)
+		else
+			if not Speed == 0 then
+				LastSpeed = Speed
+			end 
+			Speed = 0
+		end
+		end
+		
+		
+	end)
+	
+	Player.Character.Humanoid.Changed:Connect(function()
+		if Player.Character.Humanoid.Health == 0 then
+		if IsFlying then
+		IsFlying = false
+		flyg:Destroy()
+		flyv:Destroy()
+		end
+		end
+	end)
+	Player.Character.Humanoid.Changed:Connect(function(Prop)
+		
+			if Player.Character.Humanoid.MoveDirection == Vector3.new(0,0,0) then
+				IsRunning = false
+			else
+				IsRunning = true
+			end	
+	end)
+end
+coroutine.wrap(TOSK_fake_script)()
