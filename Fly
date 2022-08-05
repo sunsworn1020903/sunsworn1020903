@@ -118,6 +118,7 @@ local function TOSK_fake_script() -- FlyScript.FlyManager
 	local LastSpeed = Speed
 	local maxspeed = 999
 	local wdown = false
+    local types = "fly"
 	local sdown = false
 	Mouse.KeyDown:Connect(function(key)
 		if key:lower() == Key then
@@ -146,9 +147,9 @@ local function TOSK_fake_script() -- FlyScript.FlyManager
 			end
 		end
 	end)
-	script.Parent.Frame.TextButton.MouseButton1Click:Connect(function()
-		
-			if IsFlying then
+	
+	function fly(type)
+	    	if IsFlying then
 				IsFlying = false
 				flyv:Destroy()
 				flyg:Destroy()
@@ -169,14 +170,32 @@ local function TOSK_fake_script() -- FlyScript.FlyManager
 				flyg.D = 50
 			script.Parent.Frame.IsOn.Text = "On"
 			script.Parent.Frame.IsOn.TextColor3 = Color3.fromRGB(0,255,0)
-			Player.Character:WaitForChild('Humanoid').PlatformStand = true
+			if type == "fly car" then
+			Player.Character:WaitForChild('Humanoid').PlatformStand = false
+            else
+            Player.Character:WaitForChild('Humanoid').PlatformStand = true
+            end
 			end
+	    end
+
+	script.Parent.Frame.TextButton.MouseButton1Click:Connect(function()
+		fly(types)
 	end)
 	script.Parent.Frame.TextButton2.FocusLost:Connect(function(Entered)
 	local TextBox = script.Parent.Frame.TextButton2
  if not tonumber(TextBox.Text) then
+ if TextBox.Text == "fly car" then
+ TextBox.Text = 100
+ types = "fly car"
+ Speed = 100
+ elseif TextBox.Text == "fly" then
+ TextBox.Text = 100
+ types = "fly"
+ Speed = 100
+ else
  TextBox.Text = tostring("100" and tonumber(string.format("%.2f", 100)))
  Speed = 100
+ end
  elseif TextBox.Text == "" or tonumber(TextBox.Text) <= 1 then
  TextBox.Text = 1
  Speed = 1
